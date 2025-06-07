@@ -1,0 +1,1369 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review - The Skytrails</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      /* background: linear-gradient(90deg, #fff4ee 0%, #fdeffb 55%, #e1eaff 100%); */
+      margin: 0;
+      background: linear-gradient(135deg, #fff5f1 0%, #ffeef2 30%, #f4ebfb 70%, #e7eaff 100%);
+        background: linear-gradient(
+    120deg, 
+    #faf9f8 0%, 
+    #f8dfef 40%, 
+    #f8d4ea 100%
+  );
+    }
+
+   
+body {
+  background: linear-gradient(120deg, #ffffff 0%, #f8f2f8 48%, #e9bddd 100%);
+}
+
+    .nav-link {
+      font-weight: 600;
+      color: #1e1e1e;
+      font-size: 15px;
+    }
+    .nav-link:hover {
+      color: #f97316;
+    }
+    .tab-step {
+      background: #fbeee9;
+      padding: 10px 25px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+    }
+    .tab-step.active {
+      border: 2px solid rgb(199, 187, 175);
+      color: #f97316;
+      background: #fff;
+      font-weight: 600;
+    }
+    .review-heading {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #1e1e1e;
+    }
+    .highlight-text {
+      color: #f97316;
+      font-style: italic;
+      font-weight: 600;
+    }
+    .review-box {
+      border: 2px solid #ffb8b8;
+      background: #fff1f1;
+      padding: 1rem 1.25rem;
+      border-radius: 15px;
+      margin-top: 1rem;
+    }
+    .review-box h6 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .error-text {
+      color: #e02424;
+      font-weight: 500;
+    }
+    .badge-error {
+      background-color: #dc3545;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 10px;
+    }
+    .info-pill {
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 7px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .info-pill i {
+      font-size: 17px;
+      color: #444;
+    }
+    .toggle-edit {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+
+
+ .review-container {
+      display: flex;
+      gap: 24px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1320px;
+    }
+    .errors-panel {
+        background-color: #8b8b8b1a;
+      border-radius: 20px;
+      padding: 20px;
+      width: 40%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    /* .errors-panel.collapsed {
+ 
+  overflow: hidden;
+} */
+    .form-panel {
+      background-color: #8b8b8b1a;
+      border-radius: 20px;
+      padding: 30px;
+      width: 60%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      overflow-y: scroll;
+      max-height: 90vh;
+      scrollbar-width: none; /* Firefox */
+    }
+    .form-panel::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+    .error-heading {
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    .error-heading .badge {
+      background-color: #dc3545;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 10px;
+    }
+    .error-category {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 1rem 0 0.5rem;
+    }
+    .error-item {
+      color: #d62424;
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .error-item i {
+      color: #f59e0b;
+    }
+    .form-section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .form-control, select {
+      border-radius: 10px;
+      border: 2px solid #d8b4fe;
+      font-weight: 500;
+    }
+    .form-control:focus {
+      border-color: #a855f7;
+      box-shadow: none;
+    }
+    .form-text-error {
+      color: red;
+      font-size: 0.9rem;
+    }
+    .form-check-label {
+      margin-left: 0.5rem;
+      font-weight: 500;
+    }
+    .section-divider {
+      border-top: 1px solid #ddd;
+      margin: 2rem 0;
+    }
+      .errors-panel {
+     background-color: #8b8b8b1a;
+      border-radius: 20px;
+      padding: 20px;
+      
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: max-height 0.3s ease-in-out;
+  }
+  /* .errors-panel.collapsed {
+    max-height: 160px;
+    overflow: hidden;
+  } */
+    .footer-bar {
+      margin-top: 3rem;
+      padding: 5px 10px;
+      /* background: linear-gradient(to right, #fbeee9, #f5e4f8); */
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: #666;
+       max-width: 1140px; /* limit width */
+       max-height: 100px;
+   
+    }
+    .footer-bar .btn {
+      border-radius: 30px;
+      padding: 8px 20px;
+      font-weight: 600;
+      margin-top: 10px;
+         
+    }
+
+
+
+ 
+.btn-submit-custom {
+      background-color: #f97316;
+      color: #fff;
+      border: none;
+    }
+    .btn-submit-custom:hover {
+      background-color: #fb923c;
+    }
+
+
+
+ .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .doc-tab-content {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    button.active {
+      background-color: #f97316 !important;
+      color: white !important;
+      border-color: #f97316 !important;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .errors-panel::-webkit-scrollbar {
+  display: none;
+}
+.errors-panel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.info-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 40px;
+  font-size: 14px;
+  color: #1f1f1f;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.info-bar > div {
+  display: flex;
+  align-items: center;
+}
+
+.info-bar i {
+  font-size: 18px;
+  margin-right: 6px;
+  color: #333;
+}
+.logo-img {
+  max-height: 220px;
+  object-fit: contain;
+  display: block;
+}
+.question {
+    margin-top: 15px;
+  }
+
+  .nested {
+    margin-left: 20px;
+  }
+
+  .deeper {
+    margin-left: 40px;
+  }
+
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg border-bottom px-4 py-3" style="background: linear-gradient(90deg, #ebe9e9 0%, #d4d4d4 55%, #e1eaff 100%);">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#" style="height: 44px;">
+        <img src="images/logo1.png" alt="Logo" class="logo-img">
+       
+      </a>
+      <div class="d-flex align-items-center gap-4">
+        <a href="#" class="nav-link">Apply now</a>
+        <a href="#" class="nav-link">My Applications</a>
+        <a href="#" class="nav-link">My Documents</a>
+        <a href="#" class="nav-link">Show Walkthrough</a>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Premium Services</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Visa Help</a></li>
+            <li><a class="dropdown-item" href="#">Consulting</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <a  id="profileInitial" class="d-flex align-items-center justify-content-center rounded-circle bg-light" style="width: 36px; height: 36px; font-weight: 600; font-size: 14px; color: #555;" data-bs-toggle="dropdown">
+            A
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
+      <div class="mb-4 mb-lg-0" style="max-width: 57%;">
+        <h2  id="reviewName"   class="review-heading">Abhinandan, Final Review</h2>
+        <p class="fs-5 text-muted">
+          Time to polish it up! Fix the errors, review your docs, and when it all looks good—smash that <span class="highlight-text">Prepare File</span> button to prep your downloadable application package and glide into the next steps!
+        </p>
+      </div>
+
+       <div class="info-bar d-inline-flex px-4 py-2 align-items-center justify-content-start" style="background: rgba(0, 0, 0, 0.03); font-size: 12px; border-radius: 20px;">
+  <div class="d-flex align-items-center me-3">
+    <i class="material-icons me-1">location_on</i>
+    <span id="infoDestination">Destination</span>
+  </div>
+  <div class="d-flex align-items-center me-3">
+    <i class="material-icons me-1">badge</i>
+    <span id="infoVisaType">Visa Type</span>
+  </div>
+  <div class="d-flex align-items-center me-3">
+    <i class="material-icons me-1">timer</i>
+    <span id="infoDuration">Duration</span>
+  </div>
+  <div class="d-flex align-items-center text-muted">
+    <i class="material-icons me-1">calendar_today</i>
+    <span id="infoDates">Travel Dates</span>
+  </div>
+</div>
+
+    </div>
+
+    <div class="d-flex align-items-center gap-4 pt-5 flex-wrap">
+      <div class="tab-step">Details</div>
+      <div class="tab-step">Guidelines</div>
+      <div class="tab-step">Upload</div>
+      <div class="tab-step active border border-warning">Review</div>
+      <div class="tab-step">Submit</div>
+    </div>
+  </div>
+     
+
+
+
+
+    <div class="container py-4  ">
+  <div class="review-container">
+    <div class="errors-panel ">
+      <div class="error-heading" data-bs-toggle="collapse" data-bs-target="#errorList" aria-expanded="false" aria-controls="errorList">
+        Errors to fix <span class="badge rounded-pill">24</span> <i class="material-icons">expand_more</i>
+      </div>
+      <div class="collapse show" id="errorList">
+        <div class="error-category">Application Package Issues</div>
+        <div class="error-item"><i class="material-icons">warning</i>No passport is marked as primary</div>
+        <div class="error-item"><i class="material-icons">warning</i>Applicant's name does not match with the name on the passport</div>
+        <div class="error-item"><i class="material-icons">warning</i>Applicant's nationality doesn't match with the nationality on the passport</div>
+      </div>
+       
+      <div class="mt-4">
+      <div class="error-heading" data-bs-toggle="collapse" data-bs-target="#processedDocs" aria-expanded="false" aria-controls="processedDocs">
+  Processed Documents (19) <i class="material-icons">expand_more</i>
+</div>
+
+
+
+        <div class="collapse" id="processedDocs">
+          
+  <div class="mt-3" id="docsDisplayArea">
+    
+  </div>
+
+
+        </div>
+      </div>
+   </div>
+
+
+  
+
+    <div class="form-panel">
+      <div class="form-section-title">Application Form</div>
+
+
+  <div id="form-Australia" class="country-form" style="display: none;">
+      <form id="fullVisaForm">
+        <!-- PERSONAL DATA -->
+        <div class="mb-3"><label class="form-label">Surname(s) *</label><input type="text" class="form-control" ></div>
+        <div class="mb-3"><label class="form-label">Surname(s) at birth *</label><input type="text" class="form-control" ></div>
+        <div class="mb-3"><label class="form-label">First name(s) *</label><input type="text" class="form-control" ></div>
+        <div class="mb-3"><label class="form-label">Date of birth *</label><input type="text" class="form-control" ></div>
+        <div class="mb-3">
+         <label class="form-label">Place of Birth *</label>
+<select class="form-control">
+  <option value="">-- Please Select --</option>
+  <!-- JS will populate this -->
+</select>
+
+        
+        </div>
+        <div class="mb-3"><label class="form-label">Country of birth *</label><select class="form-control"></select></div>
+        <div class="mb-3"><label class="form-label">Current nationality/ies *</label><select class="form-control"><option selected>INDIA</option></select></div>
+        <div class="mb-3"><label class="form-label">Original nationality *</label><select class="form-control border-success"><option disabled selected>-- Please Select --</option></select><div class="form-text-error">This field is required</div></div>
+
+        <!-- Additional form fields will go here -->
+        <div class="mb-3"><label class="form-label">Do you have any other nationality?</label><br>
+          <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="otherNatYes"><label class="form-check-label" for="otherNatYes">Yes</label></div>
+          <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="otherNatNo" checked><label class="form-check-label" for="otherNatNo">No</label></div>
+        </div>
+
+        <div class="mb-3"><label class="form-label">Sex *</label><br>
+          <div class="form-check"><input class="form-check-input" type="radio" name="sex" id="male" checked><label class="form-check-label" for="male">Male</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="sex" id="female"><label class="form-check-label" for="female">Female</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="sex" id="sexOther"><label class="form-check-label" for="sexOther">Other</label></div>
+        </div>
+
+        <div class="mb-3"><label class="form-label">Marital Status *</label><br>
+          <div class="form-check"><input class="form-check-input" type="radio" name="marital" id="single"><label class="form-check-label" for="single">Single</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="marital" id="married" checked><label class="form-check-label" for="married">Married</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="marital" id="registered"><label class="form-check-label" for="registered">In a registered partnership</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="marital" id="separated"><label class="form-check-label" for="separated">Separated</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="marital" id="divorced"><label class="form-check-label" for="divorced">Divorced</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="marital" id="widow"><label class="form-check-label" for="widow">Widow(er)</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="marital" id="otherStatus"><label class="form-check-label" for="otherStatus">Other</label></div>
+        </div>
+         <div class="form-section-title">Guardian Details</div>
+        <div class="mb-3"><input type="checkbox" id="noParentDetails"> <label for="noParentDetails">Do not have parent details</label></div>
+        <div class="form-section-title">Guardian 1</div>
+        <div class="mb-3"><label class="form-label">Nationality</label><select class="form-control"><option>-- Please Select --</option></select></div>
+        <div class="mb-3"><label class="form-label">First Name</label><input type="text" class="form-control" value="DARSHNA"></div>
+        <div class="mb-3"><label class="form-label">Surname</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Country</label><select class="form-control"><option>-- Please Select --</option></select></div>
+        <div class="mb-3"><label class="form-label">State/Province</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Place</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Postal Code</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Address</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">House number</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Flat number</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Phone number</label><input type="text" class="form-control"></div>
+
+        <div class="form-section-title">Guardian 2</div>
+        <div class="mb-3"><label class="form-label">Nationality</label><select class="form-control"><option>-- Please Select --</option></select></div>
+        <div class="mb-3"><label class="form-label">First Name</label><input type="text" class="form-control" value="NATHU"></div>
+        <div class="mb-3"><label class="form-label">Surname</label><input type="text" class="form-control" value="RAM"></div>
+        <div class="mb-3"><label class="form-label">Country</label><select class="form-control"><option>-- Please Select --</option></select></div>
+        <div class="mb-3"><label class="form-label">State/Province</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Place</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Postal Code</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Address</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">House number</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Flat number</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Phone number</label><input type="text" class="form-control"></div>
+
+        <div class="form-section-title">Passport Details</div>
+        <div class="mb-3"><label class="form-label">National Identity Number</label><input type="text" class="form-control" value="5700 7027 7350"></div>
+        <div class="mb-3"><label class="form-label">Number of Travel Document</label><input type="text" class="form-control" value="P5976334"></div>
+        <div class="mb-3"><label class="form-label">Date of issue</label><input type="text" class="form-control" value="12/01/2017"></div>
+        <div class="mb-3"><label class="form-label">Valid Until</label><input type="text" class="form-control" value="11/01/2027"></div>
+        <div class="mb-3"><label class="form-label">Issued by</label><input type="text" class="form-control" value="INDIA"></div>
+
+
+        <div class="form-section-title">EU Citizenship</div>
+<div class="mb-3">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="euCitizen" id="notEUCitizen" checked>
+    <label class="form-check-label" for="notEUCitizen">Not an EU citizen</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="euCitizen" id="isEUCitizen">
+    <label class="form-check-label" for="isEUCitizen">EU citizen</label>
+  </div>
+</div>
+<div class="form-section-title">Family Member of EU/EEA/Swiss Citizen or UK National</div>
+<div class="mb-3"><label class="form-label">Surname</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">First Name</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Date of Birth</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Citizenship</label><select class="form-control"><option>-- Please Select --</option></select></div>
+<div class="mb-3"><label class="form-label">Passport Number</label><input type="text" class="form-control"></div>
+<div class="mb-3">
+  <label class="form-label">Family link with EU/EEA/Swiss citizen or UK national</label>
+  <select class="form-control">
+    <option>spouse</option>
+    <option>child</option>
+    <option>grandchild</option>
+    <option>dependent ascendant</option>
+    <option>registered partnership</option>
+    <option>other (please specify)</option>
+  </select>
+</div>
+
+<!-- Contact Info -->
+<div class="form-section-title">Contact Details</div>
+<div class="mb-3"><label class="form-label">Country</label><input type="text" class="form-control" value="INDIA"></div>
+<div class="mb-3"><label class="form-label">State/Province</label><input type="text" class="form-control" value="PANCHKULA"></div>
+<div class="mb-3"><label class="form-label">Place</label><input type="text" class="form-control" value="PANCHKULA"></div>
+<div class="mb-3"><label class="form-label">Postal Code</label><input type="text" class="form-control" value="134102"></div>
+<div class="mb-3"><label class="form-label">Address</label><input type="text" class="form-control" value="VILL DIWANWALA PO CHIKEN TEH KALKA , PANCHKULA PIN:134102,HARYANA,INDIA"></div>
+<div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" value="abhinan67676767@gmail.com"></div>
+<div class="mb-3"><label class="form-label">Phone number</label><input type="text" class="form-control" value="08295661565"></div>
+
+<div class="form-section-title">Other Data</div>
+<div class="mb-3">
+  <label class="form-label">Residence in a country other than the country of current nationality</label>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="residence" id="residenceNo" checked>
+    <label class="form-check-label" for="residenceNo">No</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="residence" id="residenceYes">
+    <label class="form-check-label" for="residenceYes">Yes. Residence permit or equivalent</label>
+  </div>
+</div>
+<div class="mb-3"><label class="form-label">Main purpose(s) of the journey</label><input type="text" class="form-control" value="Business"></div>
+<div class="mb-3"><label class="form-label">Additional information regarding the purpose of stays</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Member State of main destination</label><input type="text" class="form-control" value="POLAND"></div>
+<div class="mb-3"><label class="form-label">Member State of first entry</label><input type="text" class="form-control" value="POLAND"></div>
+<div class="mb-3"><label class="form-label">Number of entries requested</label>
+  <select class="form-control">
+    <option>Single entry</option>
+    <option>Two entries</option>
+    <option>Multiple entries</option>
+  </select>
+</div>
+<div class="mb-3"><label class="form-label">Duration of intended stay (number of days)</label><input type="text" class="form-control" value="23"></div>
+<div class="mb-3"><label class="form-label">Intended date of arrival</label><input type="text" class="form-control" value="23/05/2025"></div>
+<div class="mb-3"><label class="form-label">Intended date of departure</label><input type="text" class="form-control" value="15/06/2025"></div>
+<div class="mb-3">
+  <label class="form-label">Previous fingerprints</label>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="fingerprints" id="fpNo" checked>
+    <label class="form-check-label" for="fpNo">No</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="fingerprints" id="fpYes">
+    <label class="form-check-label" for="fpYes">Yes</label>
+  </div>
+</div>
+<div class="mb-3"><label class="form-label">Entry permit for final destination</label><input type="text" class="form-control" value="Does not apply"></div>
+
+<div class="form-section-title">Inviting Entity</div>
+<div class="mb-3"><label class="form-label">Is the inviting entity a company/organisation?</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Name and address of inviting company</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Place</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Postal Code</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Address</label><input type="text" class="form-control"></div>
+
+<div class="mb-3"><label class="form-label">Contact person First Name</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Contact person Surname</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Place</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Postal Code</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Phone number</label><input type="text" class="form-control"></div>
+<div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control"></div>
+
+<div class="form-section-title">Declarations</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" id="declaration1">
+  <label class="form-check-label" for="declaration1">I am aware that the visa fee is not refunded if the visa is refused</label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" id="declaration2">
+  <label class="form-check-label" for="declaration2">Applicable in case a multiple-entry visa is applied for (cf. Field No 24): I am aware of the need to have an adequate travel medical insurance for my first stay and any subsequent visits to the territory of Member States.</label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" id="declaration3">
+  <label class="form-check-label" for="declaration3">I am aware of and consent to the following: the collection of the data required by this application form and the taking of my photograph and, if applicable, the taking of fingerprints, are mandatory for the examination of the visa application; and any personal data concerning me which appear on the visa application form, as well as my fingerprints and my photograph will be supplied to the relevant authorities of the Member States and processed by those authorities, for the purposes of a decision on my visa application. Such data as well as data concerning the decision taken on my application or a decision whether to annul, revoke or extend a visa issued will be entered into, and stored in the Visa Information Sysetm (VIS) ( ) for a maximum period of five years , during which it will be accessible to the visa authorities and the authorities competently for carrying out checks on visas at external borders and within the Member States, immigration and asylum authorities in the Member States for the purposes of verifying whether the condition for the legal entry into, stay and residence on the territory of the Member States are fulfilled, of identifying persons who do not or who no longer fulfill these conditions, of examining an asylum application and of determining responsibility fo such examination. Under certain conditions the data will also be available to designated authorities of the Member States and to Europol for the purpose of the prevention, detection and investigation of terrorist offenses and of other serious criminal offenses. The authority of the Member State responsible for processing the data is: Centralny Organ Techniczny KSI, Komenda Główna Police, Puławska 148/150, 02-624 Warszawa. I am aware that I have the right to obtain in any of the Member States notification of the data relating to me recorded in the VIS and of the Member State which transmitted the data, and to request that data relating to me which are inaccurate be corrected and that data relating to me processed illegally be deleted. At my express request, the authority examining my application will inform me of the manner in which I may exercise my right to check the personal data concerning me and have them corrected or deleted, including the related remedies according to the national law of the State concerned . The national supervisory authority of that Member State will hear claims concerning the protection of personal data: Inspector General for Personal Data Protection, ul. Stawki 2, 00-193 Warsaw. I declare that to the best of my knowledge all particulars supplied by me are correct and complete. I am aware that any false statements will lead to my application being rejected or to the annulment of a visa already granted any may also render me liable to prosecution under the law of the Member State which deals with the application. I undertake to leave the territory of the Member States before the expiry of the visa, if granted.I have been informed that possession of a visa is only one of the prerequisites for entry into the European territory of the Member States. The mere fact that a visa has been granted to me does not mean that I will be entitled to compensation if I fail to comply with the relevant provisions of Article 5(1) of Regulation (EC) No 562/2006 (Schengen Borders Code) and I am terefore refused entry. The prerequisites for entry will be checked again on entry into the European territory of the Member States.</label>
+</div>
+<div class="form-check mb-2">
+  <input class="form-check-input" type="checkbox" id="declaration4">
+  <label class="form-check-label" for="declaration4">I am aware that I have the right to obtain, in each Member State, information about my personal data stored in the VIS and information about the Member State that provided the data, and to request that my personal data be corrected - if they are incorrect or have been deleted - if they were processed illegally. At my express request, the authority examining my application will inform me of how I can exercise my right to check the personal data concerning me and request their correction or deletion, and notify me of the relevant legal remedies under the national law of the Member State concerned . Complaints regarding the protection of personal data will be considered by the national supervisory authority of that Member State [contact details: President of the Personal Data Protection Office, ul. Stawki 2, 00-193 Warsaw]..</label>
+</div>
+<div class="form-check mb-4">
+  <input class="form-check-input" type="checkbox" id="declaration5">
+  <label class="form-check-label" for="declaration5">I certify that to the best of my knowledge all the details I have provided are correct and complete. I am aware that providing false information will result in the refusal of my application or the annulment of the visa granted and may also be subject to criminal liability under the law of the Member State examining the application..</label>
+</div>
+
+
+
+<div class="form-check mb-4">
+  <input class="form-check-input" type="checkbox" id="declaration5">
+  <label class="form-check-label" for="declaration5">I undertake to leave the territory of the Member States before the expiry of the visa, if granted. I have been informed that possession of a visa is only one of the conditions for entry into the European territory of the Member States. The mere fact that I have been granted a visa does not mean that I will be entitled to compensation in the event of failure to comply with the relevant conditions laid down in the provisions of Art. 6 sec. 1 of Regulation (EU) 2016/399 (Schengen Borders Code), as a result of which I will not be allowed to enter. The fulfillment of the entry conditions will be checked again when entering the European territory of the Member States.</label>
+</div>
+
+
+
+<div class="form-check mb-4">
+  <input class="form-check-input" type="checkbox" id="declaration5">
+  <label class="form-check-label" for="declaration5">I hereby give consent for my personal data in the e-Konsulat registration form to be processed, in accordance with art. 6 sec. 1 letter a Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46 / EC (GDPR), by the Ministry of Foreign Affairs, with its seat in Warsaw, Al. J. Ch. Szucha 23. At the same time, I declare that I have read the information posted on the websitehttps://secure.e-konsulat.gov.pl/rodobeing the implementation of the information obligation specified in Art. 13 of the GDPR regarding the processing of my personal data, and I am aware of all my rights referred to in art. 15 - 19 GDPR.</label>
+</div>
+
+        <!-- Additional fieldsets like Guardian, Passport, Contact, Purpose, etc. to follow -->
+      </form>
+      </div>
+
+
+       <div id="form-Germany" class="country-form" style="display: none;">
+      <form id="fullVisaForm">
+        <!-- PERSONAL DATA -->
+        <div class="mb-3"><label class="form-label">Family name*</label><input type="text" class="form-control" value=""></div>
+        <div class="mb-3"><label class="form-label">Name at birth *</label><input type="text" class="form-control" value=""></div>
+        <div class="mb-3"><label class="form-label">Surname(s) *</label><input type="text" class="form-control" ></div>
+        <div class="mb-3"><label class="form-label">Surname(s) at birth *</label><input type="text" class="form-control" ></div>
+        <div class="mb-3"><label class="form-label">First name(s) *</label><input type="text" class="form-control" ></div>
+        <div class="mb-3"><label class="form-label">Date of birth *</label><input type="text" class="form-control" ></div>
+
+      </form>
+      </div>
+      
+    
+
+      
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+ <div class="form-section-title">Paying for Your Visit</div>
+
+  <!-- Question: Will anyone be paying towards the cost of your visit? -->
+  <div class="mb-3">
+    <label class="form-label d-block">Will anyone be paying towards the cost of your visit?</label>
+    <div class="form-check form-check-inline">
+      <input type="radio" class="form-check-input" name="hasSponsor" id="hasSponsorYes">
+      <label class="form-check-label" for="hasSponsorYes">Yes</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" class="form-check-input" name="hasSponsor" id="hasSponsorNo">
+      <label class="form-check-label" for="hasSponsorNo">No</label>
+    </div>
+  </div>
+
+  <!-- Dynamic Sponsor Section -->
+  <div id="sponsor-details-section" style="display: none;">
+    <div class="mb-3">
+      <label class="form-label">Who is paying towards the cost of your visit?</label>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="sponsor-type" id="sponsorSomeone" value="someone">
+        <label class="form-check-label" for="sponsorSomeone">Someone I know (for example, family or friend)</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="sponsor-type" id="sponsorCompany" value="company">
+        <label class="form-check-label" for="sponsorCompany">Another company or organisation</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="sponsor-type" id="sponsorEmployer" value="employer">
+        <label class="form-check-label" for="sponsorEmployer">My employer or company</label>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Payment currency</label>
+      <select class="form-control" name="sponsor-currency">
+        <option disabled selected>-- Please Select --</option>
+        <option value="GBP">GBP - British Pound</option>
+        <option value="USD">USD - US Dollar</option>
+        <option value="EUR">EUR - Euro</option>
+        <option value="INR">INR - Indian Rupee</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">How much money will they be paying towards your visit?</label>
+      <input type="number" class="form-control" name="sponsor-amount" min="0" step="any">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Why are they helping to pay for your visit?</label>
+      <input type="text" class="form-control" name="sponsor-reason">
+    </div>
+  </div>
+
+
+
+   <div class="form-section-title">Your Planned Travel Information</div>
+
+  <div class="mb-3">
+    <label class="form-label" for="arrival-date">Date you plan to arrive in the UK</label>
+    <input type="date" class="form-control" id="arrival-date" name="arrival-date" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="departure-date">Date you plan to leave the UK</label>
+    <input type="date" class="form-control" id="departure-date" name="departure-date" required>
+  </div>
+
+  <!-- Trip Language Preference -->
+  <div class="form-section-title">Trip Information</div>
+
+  <div class="mb-3">
+    <label class="form-label d-block">We may have to talk to you about your application. Which language would you prefer to use?</label>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" name="spoken-language" id="language-english" value="english">
+      <label class="form-check-label" for="language-english">English</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" name="spoken-language" id="language-other" value="other">
+      <label class="form-check-label" for="language-other">Other</label>
+    </div>
+  </div>
+
+  <!-- Main Purpose -->
+  <div class="mb-3">
+    <label class="form-label d-block">Main reason for your visit</label>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" name="visit-purpose" id="visit-tourism" value="tourism">
+      <label class="form-check-label" for="visit-tourism">Tourism (including visiting family and friends)</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" name="visit-purpose" id="visit-study" value="study">
+      <label class="form-check-label" for="visit-study">Short Study (for less than 6 months)</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" name="visit-purpose" id="visit-business" value="business">
+      <label class="form-check-label" for="visit-business">Business (including sports and entertainment)</label>
+    </div>
+  </div>
+
+  <!-- Visit Details -->
+  <div class="mb-3">
+    <label class="form-label" for="visit-details">Give details of the main purpose of your visit and anything else you plan to do on your trip.</label>
+    <textarea class="form-control" id="visit-details" name="visit-details" rows="4" required></textarea>
+  </div>
+
+
+
+
+
+</form>
+
+</div>
+
+<!-- Additional fieldsets like Guardian, Passport, Contact, Purpose, etc. to follow -->
+      </form>
+      </div>
+    </div>
+  </div>
+
+    <div class="footer-bar mt-5">
+      <div>
+        &copy; Nuron.AI Corp. | Powered by Intellivisa
+      </div>
+      <div>
+        <a href="upload2.html">
+        <button class="btn btn-secondary me-2">Go Back</button></a>
+        <a href="submit.html">
+        <button class="btn btn-submit-custom">Submit</button></a>
+      </div>
+    </div>
+</div>
+
+
+    <!-- Application Form section would follow here -->
+  </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+
+let uploadedImages = [];
+
+ const savedDestinationCountry = localStorage.getItem('destinationCountry');
+function showFormField(){
+  document.querySelectorAll('[id^="form-"]').forEach(form => {
+  form.style.display = 'none';
+});
+
+// Then show only the selected one
+const targetForm = document.getElementById(`form-${savedDestinationCountry}`);
+if (targetForm) {
+  targetForm.style.display = 'block';
+}
+}
+document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const errorPanel = document.querySelector('.errors-panel');
+    const collapseId = trigger.getAttribute('data-bs-target');
+    const targetCollapse = document.querySelector(collapseId);
+    setTimeout(() => {
+      const isExpanded = targetCollapse.classList.contains('show');
+      if (collapseId === '#errorList') {
+        errorPanel.classList.toggle('collapsed', !isExpanded);
+      }
+    }, 350);
+  });
+});
+
+function truncate(text, max = 20) {
+  return text.length <= max ? text : text.slice(0, max - 3) + "...";
+}
+
+
+function renderProcessedDocs() {
+  const processedDocsDiv = document.getElementById("docsDisplayArea");
+  processedDocsDiv.innerHTML = '';
+  if (!uploadedImages?.length) return;
+
+  const grouped = {};
+  uploadedImages.forEach(doc => {
+    const type = doc.docType || 'Unsorted';
+    if (!grouped[type]) grouped[type] = [];
+    grouped[type].push(doc);
+  });
+
+  const tabNav = document.createElement('div');
+  tabNav.className = 'd-flex flex-wrap gap-2 mb-3';
+  const contentWrapper = document.createElement('div');
+
+  Object.entries(grouped).forEach(([type, docs], index) => {
+    const tabBtn = document.createElement('button');
+    tabBtn.textContent = type;
+    tabBtn.className = `btn btn-outline-warning rounded-pill ${index === 0 ? 'active' : ''}`;
+    tabBtn.onclick = () => {
+      document.querySelectorAll('.doc-tab-content').forEach(c => c.style.display = 'none');
+      document.getElementById(`tab-${type}`).style.display = 'block';
+      document.querySelectorAll('.btn-outline-warning').forEach(btn => btn.classList.remove('active'));
+      tabBtn.classList.add('active');
+    };
+    tabNav.appendChild(tabBtn);
+
+    const content = document.createElement('div');
+    content.id = `tab-${type}`;
+    content.className = 'doc-tab-content';
+    content.style.display = index === 0 ? 'block' : 'none';
+
+    docs.forEach(doc => {
+      const card = document.createElement('div');
+      card.style.border = '2px solid #d3d3d3';
+      card.style.borderRadius = '16px';
+      card.style.padding = '12px';
+      card.style.marginBottom = '16px';
+      card.style.textAlign = 'center';
+
+      const title = document.createElement('div');
+      title.textContent = doc.fileName;
+      title.style.fontWeight = '600';
+      title.style.marginBottom = '10px';
+
+      const image = document.createElement('img');
+      image.src = doc.imageUrl;
+      image.alt = doc.fileName;
+      image.style.width = '120px';
+      image.style.borderRadius = '6px';
+      image.style.cursor = 'pointer';
+      image.onclick = () => window.open(doc.imageUrl, '_blank');
+
+      const expandIcon = document.createElement('span');
+      expandIcon.className = 'material-icons';
+      expandIcon.textContent = 'fullscreen';
+      expandIcon.style.cursor = 'pointer';
+      expandIcon.style.marginLeft = '10px';
+      expandIcon.onclick = () => window.open(doc.imageUrl, '_blank');
+
+      card.appendChild(title);
+      card.appendChild(image);
+      card.appendChild(expandIcon);
+      content.appendChild(card);
+    });
+
+    contentWrapper.appendChild(content);
+  });
+
+  processedDocsDiv.appendChild(tabNav);
+  processedDocsDiv.appendChild(contentWrapper);
+}
+
+function renderErrorListFromBackend() {
+  const errorListDiv = document.getElementById("errorList");
+  const errorContainer = document.createElement("div");
+  let errorCount = 0;
+
+  uploadedImages.forEach(doc => {
+    const statusCode = doc.backendObj?.statusCode;
+    const errorDetails = doc.backendObj?.errors || doc.backendObj?.errorMessages || [];
+
+    if (statusCode !== 200 || (Array.isArray(errorDetails) && errorDetails.length)) {
+      const title = document.createElement("div");
+      title.className = "error-category";
+      title.textContent = `${doc.docType} - ${doc.fileName}`;
+      errorContainer.appendChild(title);
+
+      if (Array.isArray(errorDetails) && errorDetails.length) {
+        errorDetails.forEach(err => {
+          const errorItem = document.createElement("div");
+          errorItem.className = "error-item";
+          errorItem.innerHTML = `<i class="material-icons">warning</i>${err}`;
+          errorContainer.appendChild(errorItem);
+          errorCount++;
+        });
+      } else {
+        const fallback = document.createElement("div");
+        fallback.className = "error-item";
+        fallback.innerHTML = `<i class="material-icons">warning</i>Unknown error occurred (Status ${statusCode})`;
+        errorContainer.appendChild(fallback);
+        errorCount++;
+      }
+    }
+  });
+
+  if (errorCount > 0) {
+    document.querySelector(".badge.rounded-pill").textContent = errorCount;
+    errorListDiv.innerHTML = '';
+    errorListDiv.appendChild(errorContainer);
+  } else {
+    document.querySelector(".badge.rounded-pill").textContent = 0;
+    errorListDiv.innerHTML = `<div class="error-item"><i class="material-icons">check_circle</i>All documents processed successfully!</div>`;
+  }
+}
+
+function renderMissingDocTypeErrors() {
+  const allDocTypes = [
+    "Passport",
+    "Aadhaar card",
+    "Certificate of Marriage",
+    "Marriage Certificate",
+    "Income Tax Return Acknowledgement",
+    "Passbook",
+    "Residence Permit",
+    "GST Registration"
+  ];
+
+  const uploadedDocTypes = uploadedImages.map(doc => doc.docType);
+  const missingTypes = allDocTypes.filter(type => !uploadedDocTypes.includes(type));
+
+  if (missingTypes.length > 0) {
+    const errorListDiv = document.getElementById("errorList");
+
+    const sectionTitle = document.createElement("div");
+    sectionTitle.className = "error-category";
+    sectionTitle.textContent = "Missing Document Types";
+    errorListDiv.appendChild(sectionTitle);
+
+    missingTypes.forEach(type => {
+      const errorItem = document.createElement("div");
+      errorItem.className = "error-item";
+      errorItem.innerHTML = `<i class="material-icons">warning</i>${type} has not been uploaded`;
+      errorListDiv.appendChild(errorItem);
+    });
+
+    const badge = document.querySelector(".badge.rounded-pill");
+    badge.textContent = parseInt(badge.textContent) + missingTypes.length;
+  }
+}
+
+function autoFillFormFromDocuments() {
+  const formContainer = document.querySelector('.review-form-container') || document.querySelector('form');
+  if (!formContainer) return;
+
+  // Show loader
+  const loader = document.createElement('div');
+  loader.className = 'loader';
+  loader.innerHTML = `
+    <div class="text-center py-3">
+      <div class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-2">Auto-filling your details from uploaded documents...</p>
+    </div>
+  `;
+  formContainer.prepend(loader);
+
+  if (!uploadedImages?.length) {
+    loader.remove();
+    return;
+  }
+
+  // Find the document with parsed data
+  let parsedData = null;
+  for (const doc of uploadedImages) {
+    if (doc?.backendObj?.parsedData) {
+      parsedData = doc.backendObj.parsedData;
+      break;
+    }
+  }
+
+  if (!parsedData) {
+    loader.remove();
+    return;
+  }
+
+  const extractedDetails = parsedData["Extracted Details"] || parsedData;
+  console.log(extractedDetails);
+  
+  // Function to safely get a value from nested objects
+  const getValue = (obj, keys) => {
+    if (!obj) return null;
+    for (const key of keys) {
+      if (obj[key] !== undefined) return obj[key];
+    }
+    return null;
+  };
+
+  // Map of field selectors to possible data keys
+  const fieldMap = [
+    {
+      labels: ['First name(s)', 'Given name', 'First name'],
+      keys: ['Name', 'Full Name', 'Given Name'],
+      type: 'text',
+      overwrite: true // Will overwrite existing values
+    },
+    {
+      labels: ['Surname(s)', 'Family name', 'Last name'],
+      keys: ['Surname', 'Family Name', 'Last Name'],
+      type: 'text',
+      overwrite: false // Won't overwrite existing values
+    },
+    {
+      labels: ['Surname(s) at birth', 'Maiden name'],
+      keys: ['Surname at Birth', 'Maiden Name'],
+      type: 'text',
+      overwrite: false
+    },
+    {
+      labels: ['Date of birth', 'Birth date', 'DOB'],
+      keys: ['Date of Birth', 'Birth Date', 'DOB'],
+      type: 'date',
+      overwrite: true
+    },
+    {
+      labels: ['Address', 'Residential address', 'Permanent address'],
+      keys: ['Address', 'Residential Address', 'Permanent Address'],
+      type: 'textarea',
+      overwrite: true
+    }
+  ];
+
+  let fieldsFilled = 0;
+
+  fieldMap.forEach(mapping => {
+    mapping.labels.forEach(labelText => {
+      const labels = Array.from(document.querySelectorAll('label')).filter(label => 
+        label.textContent.toLowerCase().includes(labelText.toLowerCase())
+      );
+
+      labels.forEach(label => {
+        let input = label.nextElementSibling;
+        while (input && !['INPUT', 'TEXTAREA', 'SELECT'].includes(input.tagName)) {
+          input = input.nextElementSibling;
+        }
+
+        if (input && (input.tagName === 'INPUT' || input.tagName === 'TEXTAREA')) {
+          const value = mapping.keys.reduce((val, key) => 
+            val || (extractedDetails[key] !== null && extractedDetails[key] !== undefined ? extractedDetails[key] : null), 
+            null
+          );
+
+          if (value) {
+            const currentValue = input.value || input.getAttribute('value') || '';
+            const isDefaultValue = ['AY', 'AYA', 'RAVI KUMAR', '15/04/1990'].includes(currentValue);
+            
+            if (mapping.overwrite || !currentValue || isDefaultValue) {
+              input.value = value;
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+              fieldsFilled++;
+            }
+          }
+        }
+      });
+    });
+  });
+
+  // Remove loader after a short delay (even if no fields were filled)
+  setTimeout(() => {
+    loader.remove();
+    
+    if (fieldsFilled > 0) {
+      const successMsg = document.createElement('div');
+      successMsg.className = 'alert alert-success mt-3';
+      successMsg.innerHTML = `
+        <i class="material-icons">check_circle</i>
+        Successfully auto-filled ${fieldsFilled} fields from your uploaded documents.
+      `;
+      formContainer.prepend(successMsg);
+      
+      setTimeout(() => successMsg.remove(), 5000);
+    }
+  }, 1000);
+}
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = sessionStorage.getItem("uploadedDocuments");
+  if (saved) {
+    uploadedImages = JSON.parse(saved);
+    renderProcessedDocs();
+    renderErrorListFromBackend();
+    renderMissingDocTypeErrors();
+    
+    // Run auto-fill after a short delay
+    setTimeout(autoFillFormFromDocuments, 500);
+  }
+});
+
+function populateCountryDropdowns() {
+  fetch("https://restcountries.com/v3.1/all")
+    .then(res => res.json())
+    .then(data => {
+      const countryNames = data.map(c => c.name.common).sort();
+      const options = '<option value="">-- Please Select --</option>' +
+        countryNames.map(name => `<option value="${name}">${name}</option>`).join('');
+
+      // Target only the dropdowns related to countries/nationalities
+      document.querySelectorAll("select").forEach(select => {
+        const label = select.closest('.mb-3')?.querySelector('label')?.textContent?.toLowerCase() || '';
+        const isCountryField = label.includes("country") || label.includes("nationality") || label.includes("place of birth") || label.includes("issuing state");
+
+        if (isCountryField && select.options.length <= 1) {
+          select.innerHTML = options;
+        }
+      });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const signupData = JSON.parse(localStorage.getItem('signupData'));
+  const visaData = JSON.parse(localStorage.getItem('visaData'));
+
+  if (signupData?.firstName) {
+    document.getElementById('reviewName').textContent = `${signupData.firstName}, Know before you go!`;
+    const profileInitialEl = document.getElementById('profileInitial');
+    if (profileInitialEl) {
+      profileInitialEl.textContent = signupData.firstName.charAt(0).toUpperCase();
+    }
+  }
+
+  if (visaData) {
+    const destination = (visaData.destinationCountry || visaData.arrCountyName || 'Unknown');
+    const visaType = visaData.visaCategory || 'Tourism';
+    const fromDateStr = visaData.fromDate?.split('T')[0];
+    const toDateStr = visaData.toDate?.split('T')[0];
+
+    // Update info bar
+    const formatDate = (iso) => new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    const getDuration = (start, end) => {
+      const d1 = new Date(start);
+      const d2 = new Date(end);
+      const diff = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
+      return diff > 0 ? `${diff} days` : 'N/A';
+    };
+
+    document.getElementById('infoDestination').textContent = destination;
+    document.getElementById('infoVisaType').textContent = visaType;
+    document.getElementById('infoDuration').textContent = getDuration(fromDateStr, toDateStr);
+    document.getElementById('infoDates').textContent = `${formatDate(fromDateStr)} – ${formatDate(toDateStr)}`;
+
+    // Show the form for selected country
+    document.querySelectorAll('.country-form').forEach(div => div.style.display = 'none');
+    const formDiv = document.getElementById(`form-${destination}`);
+    if (formDiv) {
+      formDiv.style.display = 'block';
+
+      // Now populate country dropdowns after form becomes visible
+      setTimeout(() => {
+        fetch("https://restcountries.com/v3.1/all")
+          .then(res => res.json())
+          .then(data => {
+            const countryNames = data.map(c => c.name.common).sort();
+            const options = '<option value="">-- Please Select --</option>' +
+              countryNames.map(name => `<option value="${name}">${name}</option>`).join('');
+
+            // Target only relevant selects inside the currently shown form
+            formDiv.querySelectorAll("select").forEach(select => {
+              const label = select.closest('.mb-3')?.querySelector('label')?.textContent?.toLowerCase() || '';
+              const isCountryField = label.includes("country") || label.includes("nationality") || label.includes("place of birth") || label.includes("issuing state");
+              if (isCountryField) {
+                select.innerHTML = options;
+              }
+            });
+          });
+      }, 200);
+    } else {
+      console.warn(`Form not found for destination: ${destination}`);
+    }
+  }
+
+  function setupToggleSection(checkboxId, targetSectionId) {
+    const checkbox = document.getElementById(checkboxId);
+    const section = document.getElementById(targetSectionId);
+    if (checkbox && section) {
+      checkbox.addEventListener('change', () => {
+        section.style.display = checkbox.checked ? 'block' : 'none';
+      });
+    }
+  }
+  
+  function setupRadioToggle(groupName, yesId, targetId) {
+    const yesRadio = document.getElementById(yesId);
+    const target = document.getElementById(targetId);
+    const radios = document.getElementsByName(groupName);
+
+    if (yesRadio && target && radios.length) {
+      const toggle = () => {
+        target.style.display = yesRadio.checked ? 'block' : 'none';
+      };
+
+      radios.forEach(r => r.addEventListener('change', toggle));
+      toggle();
+    }
+  }
+
+  // Setup all your radio toggles
+  document.addEventListener("DOMContentLoaded", () => {
+    setupRadioToggle('hasNationalID', 'hasNationalIDYes', 'national-id-section');
+  });
+  
+  // Additional logic to control EU block visibility based on French family selection
+  const joinFrenchRadios = document.querySelectorAll('input[name="joinFrench"]');
+  const euBlock = document.getElementById('join-eu-question-block');
+
+  if (joinFrenchRadios.length && euBlock) {
+    const updateEUVisibility = () => {
+      const isFrenchNo = document.getElementById('joinFrenchNo')?.checked;
+      euBlock.style.display = isFrenchNo ? 'block' : 'none';
+    };
+
+    joinFrenchRadios.forEach(radio => {
+      radio.addEventListener('change', updateEUVisibility);
+    });
+
+    updateEUVisibility();
+  }
+
+  // Setup all your toggle sections and radio buttons
+  setupRadioToggle('joinFrench', 'joinFrenchYes', 'french-family-details');
+  setupRadioToggle('joinEU', 'joinEUYes', 'eu-family-details');
+  setupToggleSection('toggle-eu-section', 'section-eu-section');
+  setupRadioToggle('fingerprints', 'fingerprintsYes', 'fingerprints-extra');
+  setupRadioToggle('residenceCheck', 'residenceYes', 'section-residence-details');
+  setupRadioToggle('referenceType', 'invitingPerson', 'reference-person-section');
+  setupRadioToggle('referenceType', 'invitingCompany', 'reference-company-section');
+  setupRadioToggle('costsCovered', 'self', 'costs-self-section');
+  setupRadioToggle('costsCovered', 'sponsor', 'costs-sponsor-section');
+  setupRadioToggle('freedomMovement', 'freedomYes', 'freedom-section-yes');
+  setupToggleSection('freedomCheckbox', 'freedom-section-yes', 'freedom-section-no');
+  setupToggleSection('residenceCheckbox', 'residence-detail-section');
+  setupToggleSection('fingerprintsToggle', 'fingerprint-details-section');
+  setupToggleSection('visaStickerToggle', 'visa-sticker-section');
+  setupRadioToggle('recentSchengen', 'visaYes', 'schengen-details');
+  setupRadioToggle('fingerprintsTaken', 'fpYes', 'fingerprint-details');
+  setupRadioToggle('residencyStatus', 'resideYes', 'residency-details');
+  setupRadioToggle('prevStay', 'prevStayYes', 'prev-stay-details');
+  setupRadioToggle('prevBiometrics', 'prevBiometricsYes', 'biometric-details');
+  setupRadioToggle('otherTravel', 'otherTravelYes', 'otherTravelSection');
+  setupRadioToggle('hostPerson', 'hostYes', 'host-details');
+  setupRadioToggle('hostOrg', 'hostOrgYes', 'host-org-details');
+  setupRadioToggle('altAccom', 'altAccomYes', 'alt-accom-details');
+  setupRadioToggle('otherTripPurpose', 'otherTripYes', 'other-purpose-section');
+  setupRadioToggle('emailOwns', 'emailOwnsYes', 'q2-container');
+  setupRadioToggle('emailOwns', 'emailOwnsNo', 'q3-container');
+  setupRadioToggle('otherEmail', 'otherEmailYes', 'extra-emails-container');
+  setupRadioToggle('otherEmail', 'otherEmailNo', 'email-preference-container');
+  setupRadioToggle('ownEmail', 'ownEmailYes', 'email-if-own-container');
+  setupRadioToggle('hasOtherPhone', 'hasOtherPhoneYes', 'other-phone-container');
+  setupRadioToggle('otherName', 'otherNameYes', 'other-name-section');
+  setupRadioToggle('isCorrespondence', 'isCorrespondenceYes', 'correspondence-address-section', 'no');
+  setupRadioToggle('hasOtherPhone', 'hasOtherPhoneNo', 'other-phone-container');
+  setupRadioToggle('hasNationalID', 'hasNationalIDYes', 'national-id-section');
+  setupRadioToggle('hasOtherNationality', 'hasOtherNationalityYes', 'other-nationality-section');
+  setupRadioToggle('hasPassport', 'hasPassportYes', 'passport-details-section');
+  setupRadioToggle('hasIdentityCard', 'hasIdentityCardYes', 'identity-card-section');
+  setupRadioToggle('hasAdditionalNationality', 'hasAdditionalNationalityYes', 'additional-nationality-section');
+  setupRadioToggle('hasSponsor', 'hasSponsorYes', 'sponsor-details-section');
+  
+  // Setup funding options
+  document.getElementById('fundSelf')?.addEventListener('change', e => {
+    document.getElementById('self-fund-options').style.display = e.target.checked ? 'block' : 'none';
+  });
+  document.getElementById('fundHost')?.addEventListener('change', e => {
+    document.getElementById('host-fund-options').style.display = e.target.checked ? 'block' : 'none';
+  });
+  document.getElementById('fundGuarantor')?.addEventListener('change', e => {
+    document.getElementById('guarantor-fund-options').style.display = e.target.checked ? 'block' : 'none';
+  });
+});
+
+// Add this CSS for the loader
+const loaderCSS = `
+.loader {
+  position: relative;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.loader .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+`;
+
+// Inject the CSS
+const style = document.createElement('style');
+style.textContent = loaderCSS;
+document.head.appendChild(style);
+
+
+</script>
+
+
+</body>
+</html>
