@@ -10,6 +10,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <style>
+
+    /* Responsive clamp values for step pills */
+.step-pill {
+  padding: 8px clamp(16px, 3vw, 30px);
+  font-size: clamp(14px, 1.5vw, 16px);
+}
+
+/* Hide scrollbar for step pills */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Material icons responsive sizing */
+.material-icons {
+  font-size: inherit !important;
+}
+
+/* Mobile-first media query for larger screens */
+@media (min-width: 992px) {
+  .info-bar {
+    flex-wrap: nowrap !important;
+    font-size: 14px !important;
+  }
+}
     body {
       font-family: 'Inter', Arial, sans-serif;
       background: linear-gradient(90deg, #fff4ee 0%, #fdeffb 55%, #e1eaff 100%);
@@ -697,39 +721,50 @@ background: rgba(159, 159, 159, 0.3);
 <body>
 <nav class="navbar navbar-expand-lg" style="background: linear-gradient(90deg, #ebe9e9 0%, #d4d4d4 55%, #e1eaff 100%); border-bottom: 1px solid #fbd8d1; padding: 14px 48px;">
   <div class="container-fluid px-0 d-flex align-items-center justify-content-between">
-    
-
+    <!-- Logo/Brand -->
     <a class="d-flex align-items-center text-decoration-none" style="height: 44px;" href="#">
       <img src="images/logo1.png" alt="Logo" class="logo-img">
-      
     </a>
 
-   
-    <div class="d-flex align-items-center gap-4">
-      <a href="./Form.html" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">Apply now</a>
-      <a href="#" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">My Applications</a>
-      <a href="#" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">My Documents</a>
+    <!-- Mobile Toggle Button (hidden on desktop) -->
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" 
+            style="border: none; background: transparent; padding: 8px;">
+      <span class="navbar-toggler-icon" style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="width: 24px; height: 2px; background-color: #333;"></span>
+        <span style="width: 24px; height: 2px; background-color: #333;"></span>
+        <span style="width: 24px; height: 2px; background-color: #333;"></span>
+      </span>
+    </button>
 
-      
-      <div class="dropdown">
-        <a class="dropdown-toggle text-dark fw-semibold text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" style="font-size: 15px;">
-          Premium Services
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Visa Help</a></li>
-          <li><a class="dropdown-item" href="#">Consulting</a></li>
-        </ul>
-      </div>
+    <!-- Navbar Content - Will collapse on mobile -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <div class="d-flex align-items-center gap-4">
+        <div class="d-flex flex-column flex-lg-row gap-4">
+          <a href="./Form.html" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">Apply now</a>
+          <a href="#" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">My Applications</a>
+          <a href="#" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">My Documents</a>
 
+          <div class="dropdown">
+            <a class="dropdown-toggle text-dark fw-semibold text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" style="font-size: 15px;">
+              Premium Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Visa Help</a></li>
+              <li><a class="dropdown-item" href="#">Consulting</a></li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="dropdown">
-        <a  id="profileInitial" href="#" class="d-flex align-items-center justify-content-center rounded-circle bg-light" style="width: 36px; height: 36px; font-weight: 600; font-size: 14px; color: #555;" data-bs-toggle="dropdown">
-          A
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><a class="dropdown-item" href="#">Logout</a></li>
-        </ul>
+        <div class="dropdown">
+          <a id="profileInitial" href="#" class="d-flex align-items-center justify-content-center rounded-circle bg-light" 
+             style="width: 36px; height: 36px; font-weight: 600; font-size: 14px; color: #555;" data-bs-toggle="dropdown">
+            A
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -741,17 +776,16 @@ background: rgba(159, 159, 159, 0.3);
 
 
 
+<div class="container py-3 py-md-5">
 
-<div class="container py-5">
-
-  <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
+  <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-3 gap-md-4">
     
- 
-    <div class="mb-4 mb-lg-0" style="max-width: 57%;">
-      <h2 id="reviewName"  class="fw-bold mb-2" style="font-size: 2.1rem;">
+    <!-- Text Content -->
+    <div class="mb-4 mb-lg-0" style="max-width: 100%; width: 100%;">
+      <h2 id="reviewName" class="fw-bold mb-2" style="font-size: clamp(1.5rem, 4vw, 2.1rem);">
         Abhinandan, <span class="fw-bold">Upload Documents</span>
       </h2>
-      <p class="fs-5 text-muted mb-0">
+      <p class="fs-5 text-muted mb-0" style="font-size: clamp(0.9rem, 2vw, 1rem);">
         <span class="text-warning fst-italic">Upload</span>
         all the required docs to unlock the next step—no sneaky skips allowed! Peek at the
         <span class="text-warning fst-italic">Review & Errors tabs</span>
@@ -759,44 +793,37 @@ background: rgba(159, 159, 159, 0.3);
       </p>
     </div>
 
-    <!-- <div class="info-bar">
-  <div><i class="material-icons">location_on</i>United Kingdom</div>
-  <div><i class="material-icons">badge</i>Tourism</div>
-  <div><i class="material-icons">timer</i>29 days</div>
-  <div><i class="material-icons">calendar_today</i>May 26, 2025 – Jun 24, 2025</div>
-</div> -->
-
-<div class="info-bar d-inline-flex px-4 py-2 align-items-center justify-content-start" style="background: rgba(0, 0, 0, 0.03); font-size: 12px; border-radius: 20px;">
-  <div class="d-flex align-items-center me-3">
-    <i class="material-icons me-1">location_on</i>
-    <span id="infoDestination">Destination</span>
-  </div>
-  <div class="d-flex align-items-center me-3">
-    <i class="material-icons me-1">badge</i>
-    <span id="infoVisaType">Visa Type</span>
-  </div>
-  <div class="d-flex align-items-center me-3">
-    <i class="material-icons me-1">timer</i>
-    <span id="infoDuration">Duration</span>
-  </div>
-  <div class="d-flex align-items-center text-muted">
-    <i class="material-icons me-1">calendar_today</i>
-    <span id="infoDates">Travel Dates</span>
-  </div>
-</div>
-
+    <!-- Info Bar - Modified for responsiveness -->
+    <div class="info-bar d-flex flex-wrap px-3 px-md-4 py-2 align-items-center justify-content-start" 
+         style="background: rgba(0, 0, 0, 0.03); font-size: clamp(0.65rem, 1.5vw, 0.75rem); border-radius: 20px; gap: 0.5rem 1rem; width: 100%;">
+      <div class="d-flex align-items-center">
+        <i class="material-icons me-1" style="font-size: inherit;">location_on</i>
+        <span id="infoDestination">Destination</span>
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="material-icons me-1" style="font-size: inherit;">badge</i>
+        <span id="infoVisaType">Visa Type</span>
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="material-icons me-1" style="font-size: inherit;">timer</i>
+        <span id="infoDuration">Duration</span>
+      </div>
+      <div class="d-flex align-items-center text-muted">
+        <i class="material-icons me-1" style="font-size: inherit;">calendar_today</i>
+        <span id="infoDates">Travel Dates</span>
+      </div>
+    </div>
 
   </div>
 
-
-  <div class="d-flex align-items-center gap-4 pt-5 flex-wrap flex-md-nowrap overflow-auto">
-    <div class="step-pill active">Details</div>
-    <div class="step-pill active">Guidelines</div>
-    <div class="step-pill border border-warning text-warning bg-white fw-bold">Upload</div>
-    <div class="step-pill">Review</div>
-    <div class="step-pill">Submit</div>
+  <!-- Step Pills - Made scrollable on mobile -->
+  <div class="d-flex align-items-center gap-3 pt-4 pt-md-5 flex-nowrap overflow-auto pb-2" style="scrollbar-width: none;">
+    <div class="step-pill active" style="white-space: nowrap;">Details</div>
+    <div class="step-pill active" style="white-space: nowrap;">Guidelines</div>
+    <div class="step-pill border border-warning text-warning bg-white fw-bold" style="white-space: nowrap;">Upload</div>
+    <div class="step-pill" style="white-space: nowrap;">Review</div>
+    <div class="step-pill" style="white-space: nowrap;">Submit</div>
   </div>
-
 
 </div>
 

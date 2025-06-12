@@ -101,25 +101,37 @@
       const form = document.getElementById('visaForm');
 
       
-     const res = await fetch('https://countriesnow.space/api/v0.1/countries');
+   const res = await fetch('https://back.theskytrails.com/skyTrails/grnconnect/getcountrylist');
 const result = await res.json();
+console.log(result);
 
-const countries = result.data.map(c => c.country).sort();
+const countries = result.data.map(c => c.countryName).sort();
 
+// Add default option first
+const defaultOption = new Option("Please select the country", "");
+defaultOption.disabled = true;
+defaultOption.selected = true;
+
+// Add to both selects
+passportCountrySelect.add(defaultOption.cloneNode(true));
+travelFromSelect.add(defaultOption.cloneNode(true));
+
+// Then add all countries
 countries.forEach(country => {
   const option = new Option(country, country);
   passportCountrySelect.add(option.cloneNode(true));
   travelFromSelect.add(option.cloneNode(true));
 });
 
+const response = await axios.get('https://back.theskytrails.com/api/skyTrails/getCountryList');
+const travelToOptions = response.data.result;
 
-      const response = await axios.get('https://back.theskytrails.com/api/skyTrails/getCountryList');
-      const travelToOptions = response.data.result;
-
-      travelToOptions.forEach(item => {
-        const option = new Option(item.country, item.country);
-        travelToSelect.add(option);
-      });
+// Add default option to travelToSelect
+travelToSelect.add(new Option("Please select the country", "", true, true));
+travelToOptions.forEach(item => {
+  const option = new Option(item.country, item.country);
+  travelToSelect.add(option);
+});
 //       let travelToOptions = [];
 
 // try {
