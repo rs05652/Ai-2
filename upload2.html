@@ -143,9 +143,9 @@
     }
     .upload-empty-card .mdi { font-size:49px;color:#a3a0a5;margin-bottom:10px;}
     .upload-empty-card .upload-btn {
-      margin-top: 22px;   margin-left: 60px;  border:none; border-radius:99px;height:80px;
+      margin-top: 22px;   margin-left: 60px;  border:none; border-radius:99px;height:60px;
       background: linear-gradient(90deg, #ff9800 8%, #ff6e3e 92%);
-      color:#fff; font-size:17px; font-weight:600; padding:9px 35px; display: flex; align-items: center; gap: 11px; box-shadow:0 2px 9px #ffb37028;
+      color:#fff; font-size:18px; font-weight:550; padding:9px 35px; display: flex; align-items: center; gap: 11px; box-shadow:0 2px 9px #ffb37028;
     }
     .upload-empty-card .upload-btn:hover {background: linear-gradient(90deg,#ff6e3e 5%, #ff9800 95%);}
     .uploading-indicator {
@@ -576,10 +576,115 @@ background: rgba(159, 159, 159, 0.3);
   0% { transform: rotate(0); }
   100% { transform: rotate(360deg); }
 }
+.no-error-message {
+    padding: 15px;
+    color: green;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin: 10px;
+    background-color: #f8fff8;
+}
 
+.editable-field-container {
+  position: relative;
+  width: 100%;
+}
 
+.editable-field {
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: rgb(248, 245, 245);
+  min-height: 20px;
+  outline: none;
+}
 
+.editable-field:focus {
+  border-color: #ffc107;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.3);
+}
 
+.save-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.save-btn:hover {
+  background: #388E3C;
+}
+
+.no-data-message {
+  padding: 20px;
+  text-align: center;
+  color: #d89b9b;
+}
+
+#right-details-fields {
+  max-height: 400px; /* or any height you want */
+  overflow-y: scroll;
+
+  /* Hide scrollbar for Chrome, Safari, Edge */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+
+#right-details-fields::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+.custom-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.custom-alert-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.custom-alert-box h3 {
+    margin-top: 0;
+    color: #e53935;
+}
+
+.custom-alert-btn {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
 
   </style> 
@@ -601,7 +706,7 @@ background: rgba(159, 159, 159, 0.3);
 
    
     <div class="d-flex align-items-center gap-4">
-      <a href="#" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">Apply now</a>
+      <a href="./Form.html" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">Apply now</a>
       <a href="#" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">My Applications</a>
       <a href="#" class="text-dark fw-semibold text-decoration-none" style="font-size: 15px;">My Documents</a>
 
@@ -781,12 +886,12 @@ background: rgba(159, 159, 159, 0.3);
         
 
            <div class="review-header-row">
-  <button class="review-bar" id="tab-review" onclick="toggleReviewErrorTab('review')">
+<button class="review-bar" id="tab-review" onclick="toggleReviewErrorTab('review')">
     <span class="mdi mdi-clipboard-check-outline"></span>
     Review Details
     <span class="count-bubble" id="review-details-count">0</span>
   </button>
-  <button class="review-bar" id="tab-errors" onclick="toggleReviewErrorTab('error')" style="background:#fff5f4; color:#ec3636;">
+<button class="review-bar" id="tab-errors" onclick="toggleReviewErrorTab('error')">
     Errors
     <span class="count-bubble" id="review-errors-count">0</span>
   </button>
@@ -817,7 +922,8 @@ background: rgba(159, 159, 159, 0.3);
 
       <div class="footer-bar mt-5">
       <div>
-        &copy; TheSkytrails
+            &copy; | Powered by The SkyTrails
+
       </div>
       <div>
         <a href="Guideline.html">
@@ -995,8 +1101,13 @@ background: rgba(159, 159, 159, 0.3);
   }
 
   function selectDocFile(dtIdx, fileIdx) {
+    const docType = DOC_TYPES[dtIdx];
+    const docsOfType = uploadedImages.filter(x => x.docType === docType);
+    
+    if (docsOfType.length === 0) return;
+    
     selectedDocTypeIdx = dtIdx;
-    selectedFileIdx = fileIdx;
+    selectedFileIdx = Math.min(fileIdx, docsOfType.length - 1);
     updateMainPreview();
   }
 
@@ -1058,7 +1169,7 @@ background: rgba(159, 159, 159, 0.3);
     renderChecklist();
   }
 
-  function renderRightDetails() {
+ function renderRightDetails() {
     try {
       const form = document.getElementById('right-details-fields');
       form.innerHTML = '';
@@ -1151,10 +1262,50 @@ background: rgba(159, 159, 159, 0.3);
         const fieldHtml = `
           <div class="doc-details-field">
             <label>${formatKeyName(key)}</label>
-            <input type="text" readonly value="${escapeHtml(displayValue)}" />
+            <div class="editable-field-container">
+              <div class="editable-field" 
+                   contenteditable="true" 
+                   data-key="${escapeHtml(key)}"
+                   data-original="${escapeHtml(displayValue)}">
+                ${escapeHtml(displayValue)}
+              </div>
+              <button class="save-btn" data-key="${escapeHtml(key)}" style="display:none">
+                <span class="mdi mdi-check"></span>
+              </button>
+            </div>
           </div>`;
         
         form.innerHTML += fieldHtml;
+      });
+
+      // Add event listeners for editable fields
+      document.querySelectorAll('.editable-field').forEach(field => {
+        field.addEventListener('focus', function() {
+          this.parentElement.querySelector('.save-btn').style.display = 'inline-block';
+        });
+        
+        field.addEventListener('blur', function() {
+          // Delay hiding the save button to allow click
+          setTimeout(() => {
+            this.parentElement.querySelector('.save-btn').style.display = 'none';
+          }, 200);
+        });
+        
+        field.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            this.blur();
+            saveFieldValue(this);
+          }
+        });
+      });
+
+      // Add event listeners for save buttons
+      document.querySelectorAll('.save-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const field = this.parentElement.querySelector('.editable-field');
+          saveFieldValue(field);
+        });
       });
 
       document.getElementById('review-details-count').innerText = validCount;
@@ -1164,7 +1315,44 @@ background: rgba(159, 159, 159, 0.3);
       console.error('Error in renderRightDetails:', error);
       showNoDataMessage('Error displaying document data');
     }
-  }
+}
+
+function saveFieldValue(fieldElement) {
+    const key = fieldElement.getAttribute('data-key');
+    const newValue = fieldElement.textContent.trim();
+    const originalValue = fieldElement.getAttribute('data-original');
+
+    if (newValue === originalValue) return;
+
+    const currentDocType = DOC_TYPES[selectedDocTypeIdx];
+    const docsOfType = uploadedImages.filter(x => x.docType === currentDocType);
+    const currentDoc = docsOfType[selectedFileIdx];
+
+    if (!currentDoc) return;
+
+    const parsedData = currentDoc.backendObj.parsedData;
+
+    const keyParts = key.split('_');
+    let targetObj = parsedData;
+
+    for (let i = 0; i < keyParts.length - 1; i++) {
+        const part = keyParts[i];
+        if (!targetObj[part] || typeof targetObj[part] !== 'object') {
+            targetObj[part] = {};
+        }
+        targetObj = targetObj[part];
+    }
+
+    const finalKey = keyParts[keyParts.length - 1];
+    targetObj[finalKey] = newValue;
+
+    // Optionally update original data to avoid repeated saves
+    fieldElement.setAttribute('data-original', newValue);
+
+    // Hide save button
+    const saveBtn = fieldElement.parentElement.querySelector('.save-btn');
+    if (saveBtn) saveBtn.style.display = 'none';
+}
 
   function showReviewTab() {
     document.getElementById('tab-review').classList.add('active');
@@ -1239,35 +1427,88 @@ background: rgba(159, 159, 159, 0.3);
     errorListDiv.innerHTML = '';
     let errorCount = 0;
 
-    uploadedImages.forEach(doc => {
-      const statusCode = doc.backendObj?.statusCode;
-      const errorDetails = doc.backendObj?.errors || doc.backendObj?.errorMessages || [];
+    // Get current document
+    const currentDocType = DOC_TYPES[selectedDocTypeIdx];
+    const docsOfType = uploadedImages.filter(x => x.docType === currentDocType);
+    const currentDoc = docsOfType[selectedFileIdx];
 
-      if (statusCode !== 200 || (Array.isArray(errorDetails) && errorDetails.length)) {
-        const title = document.createElement("div");
-        title.className = "doc-details-field";
-        title.innerHTML = `<label><strong>${doc.docType || 'Unknown'} - ${doc.fileName}</strong></label>`;
-        errorListDiv.appendChild(title);
-
-        (Array.isArray(errorDetails) ? errorDetails : [`Unknown error (Status ${statusCode})`])
-          .forEach(err => {
-            const errorItem = document.createElement("div");
-            errorItem.className = "doc-details-field";
-            errorItem.innerHTML = `<input type="text" readonly value="${err}" style="color:#e53935; font-weight: 600;" />`;
-            errorListDiv.appendChild(errorItem);
-            errorCount++;
-          });
-      }
-    });
-
-    const badge = document.getElementById("review-errors-count");
-    if (badge) badge.textContent = errorCount;
-
-    if (errorCount === 0) {
-      errorListDiv.innerHTML = `<div style="color: green; font-weight: 600;">All documents processed successfully 🎉</div>`;
+    if (!currentDoc) {
+        errorListDiv.innerHTML = `<div class="no-error-message">No document selected</div>`;
+        document.getElementById("review-errors-count").textContent = "0";
+        return;
     }
 
-    renderMissingDocTypeErrors();
+    // Get errors from all possible fields
+    const errorDetails = currentDoc.backendObj?.errorDetails || 
+                        currentDoc.backendObj?.errorMessages || 
+                        currentDoc.backendObj?.parsedData?.detected_errors ||
+                        currentDoc.backendObj?.parsedData?.['Detected Errors'] || 
+                        [];
+
+    // Convert to array and filter
+    const errorsArray = Array.isArray(errorDetails) ? errorDetails : 
+                       typeof errorDetails === 'string' ? [errorDetails] : [];
+    
+    const filteredErrors = errorsArray.filter(err => 
+        err && !err.toLowerCase().includes('no error') && 
+        !err.toLowerCase().includes('readable')
+    );
+
+    // Add status code error if present
+    if (currentDoc.backendObj?.statusCode && currentDoc.backendObj.statusCode !== 200) {
+        filteredErrors.push(`API Error: Status Code ${currentDoc.backendObj.statusCode}`);
+    }
+
+    // Display errors or no-error message
+    if (filteredErrors.length > 0) {
+        const title = document.createElement("div");
+        title.className = "doc-details-field";
+        title.innerHTML = `<label><strong>${currentDoc.docType} - ${currentDoc.fileName}</strong></label>`;
+        errorListDiv.appendChild(title);
+
+        filteredErrors.forEach(err => {
+            const errorItem = document.createElement("div");
+            errorItem.className = "doc-details-field";
+            errorItem.innerHTML = `<input type="text" readonly value="${escapeHtml(err)}" style="color:#e53935; font-weight: 600;" />`;
+            errorListDiv.appendChild(errorItem);
+            errorCount++;
+        });
+    } else {
+        errorListDiv.innerHTML = `
+            <div class="no-error-message">
+                <span class="mdi mdi-check-circle" style="color:green; font-size:24px;"></span>
+                No errors detected in this document
+            </div>`;
+    }
+
+    // Update error count badge
+    document.getElementById("review-errors-count").textContent = errorCount.toString();
+
+    // Only show missing doc types if we're viewing all errors
+    if (document.getElementById('tab-errors').classList.contains('active')) {
+        renderMissingDocTypeErrors();
+    }
+  }
+
+  function toggleReviewErrorTab(tab) {
+    const reviewTab = document.getElementById('tab-review');
+    const errorTab = document.getElementById('tab-errors');
+    const reviewContent = document.getElementById('review-tab-content');
+    const errorContent = document.getElementById('error-tab-content');
+
+    if (tab === 'review') {
+        reviewContent.style.display = 'block';
+        errorContent.style.display = 'none';
+        reviewTab.classList.add('active');
+        errorTab.classList.remove('active');
+        renderRightDetails(); // Refresh details view
+    } else {
+        reviewContent.style.display = 'none';
+        errorContent.style.display = 'block';
+        reviewTab.classList.remove('active');
+        errorTab.classList.add('active');
+        renderErrorSummary(); // Refresh error display
+    }
   }
 
   function renderMissingDocTypeErrors() {
@@ -1290,9 +1531,9 @@ background: rgba(159, 159, 159, 0.3);
       const errorListDiv = document.getElementById("dynamic-error-list");
       if (!errorListDiv) return;
 
-      const sectionTitle = document.createElement("div");
-      sectionTitle.className = "doc-details-field";
-      sectionTitle.innerHTML = `<label><strong>Missing Document Types</strong></label>`;
+      // const sectionTitle = document.createElement("div");
+      // sectionTitle.className = "doc-details-field";
+      // sectionTitle.innerHTML = `<label><strong>Missing Document Types</strong></label>`;
       errorListDiv.appendChild(sectionTitle);
 
       missingTypes.forEach(type => {
@@ -1302,47 +1543,66 @@ background: rgba(159, 159, 159, 0.3);
         errorListDiv.appendChild(errorItem);
       });
 
-      const badge = document.getElementById("review-errors-count");
-      if (badge) badge.textContent = parseInt(badge.textContent) + missingTypes.length;
+      const currentCount = parseInt(document.getElementById("review-errors-count").textContent) || 0;
+      document.getElementById("review-errors-count").textContent = (currentCount + missingTypes.length).toString();
     }
   }
-
-  async function handleFilesSelected(fileInputs) { 
+  // Add this near your other constants
+const MAX_PHOTOS_ALLOWED = 3;
+async function handleFilesSelected(fileInputs) { 
     if (!fileInputs.length) return;
 
+    // Count existing photos
+    const existingPhotoCount = uploadedImages.filter(img => 
+        img.docType === "Photo"
+    ).length;
+
+    // Calculate how many new photos are being uploaded
+    const newFiles = Array.from(fileInputs);
+    const newPhotosCount = newFiles.filter(file => {
+        // Simple check for image files (you might want to enhance this)
+        return file.type.startsWith('image/');
+    }).length;
+
+    // Check if upload would exceed limit
+    if (existingPhotoCount + newPhotosCount > MAX_PHOTOS_ALLOWED) {
+        alert(`You can only upload ${MAX_PHOTOS_ALLOWED} photos maximum.\n\nYou already have ${existingPhotoCount} photos uploaded and are trying to add ${newPhotosCount} more.`);
+        return;
+    }
+
     showProcessingOverlay(fileInputs.length);
-    const filesArray = Array.from(fileInputs);
-    document.getElementById('uploading-file-name').textContent = `${filesArray.length} files selected`;
+    document.getElementById('uploading-file-name').textContent = `${newFiles.length} files selected`;
 
     try {
-      const results = await uploadFilesWithRetry(filesArray, 0);
+        const results = await uploadFilesWithRetry(newFiles, 0);
 
-      results.forEach((result, index) => {
-        const file = filesArray[index];
-        const { docType, imageUrl, backendObj } = result;
+        results.forEach((result, index) => {
+            const file = newFiles[index];
+            const { docType, imageUrl, backendObj } = result;
 
-        const assignedDocType = matchDocType(docType);
-        const fileEntry = { 
-          docType: assignedDocType, 
-          fileName: file.name, 
-          imageUrl, 
-          backendObj 
-        };
+            const assignedDocType = matchDocType(docType);
+            const fileEntry = { 
+                docType: assignedDocType, 
+                fileName: file.name, 
+                imageUrl, 
+                backendObj 
+            };
 
-        const isDuplicate = uploadedImages.some(img => 
-          img.fileName === fileEntry.fileName && 
-          img.imageUrl === fileEntry.imageUrl
-        );
-        
-        if (!isDuplicate) {
-          uploadedImages.push(fileEntry);
-        }
+            const isDuplicate = uploadedImages.some(img => 
+                img.fileName === fileEntry.fileName && 
+                img.imageUrl === fileEntry.imageUrl
+            );
+            
+            if (!isDuplicate) {
+                uploadedImages.push(fileEntry);
+            }
 
-        updateProcessingProgress(index + 1, filesArray.length);
-      });
+            updateProcessingProgress(index + 1, newFiles.length);
+        });
 
     } catch (e) {
-      console.warn(`❌ Batch upload failed: ${e.message}`);
+        console.warn(`❌ Batch upload failed: ${e.message}`);
+        alert(`Upload failed: ${e.message}`);
     }
 
     hideProcessingOverlay();
@@ -1351,7 +1611,7 @@ background: rgba(159, 159, 159, 0.3);
     renderChecklist();
     setUIState(uploadedImages.length ? 'preview' : 'empty');
     document.getElementById('upload-more-container').style.display = 'block';
-  }
+}
 
   async function uploadFilesWithRetry(files, attempt) {
     try {

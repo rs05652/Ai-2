@@ -337,7 +337,7 @@ body {
 </a>
 
       <div class="d-flex align-items-center gap-4">
-        <a href="#" class="nav-link">Apply now</a>
+        <a href="./Form.html" class="nav-link">Apply now</a>
         <a href="#" class="nav-link">My Applications</a>
         <a href="#" class="nav-link">My Documents</a>
         <a href="#" class="nav-link">Show Walkthrough</a>
@@ -364,7 +364,7 @@ body {
   <div class="container py-5">
     <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
       <div class="mb-4 mb-lg-0" style="max-width: 55%;">
-        <h2 class="review-heading" id="reviewName">Rishabh, Final Review</h2>
+        <h2 class="review-heading" id="reviewName">, Final Review</h2>
         <p class="fs-5 text-muted">
           Time to polish it up! Fix the errors, review your docs, and when it all looks good—smash that <span class="highlight-text">Prepare File</span> button to prep your downloadable application package and glide into the next steps!
         </p>
@@ -432,23 +432,24 @@ body {
       <div class="col-lg-8">
         <div class="summary-card">
           <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5 class="fw-semibold">Poland Visa</h5>
+            <h5 class="fw-semibold " id="country"></h5>
             <div>
               <span class="badge-orange">PENDING</span>
               <i class="material-icons ms-2" style="cursor: pointer;">edit</i>
             </div>
           </div>
 
-          <h4 class="fw-bold mb-1">Rishabh Srivastava <span class="text-success ms-2">✔</span></h4>
-          <div class="text-muted mb-2">Passport No: P5976334</div>
-
+<h4 class="fw-bold mb-1" id="userNameDisplay">
+    <!-- Name will be dynamically inserted here -->
+    <span class="text-success ms-2">✔</span>
+</h4>
           <div class="text-muted mb-1">Visa Type</div>
-          <h6 class="fw-semibold">Schengen Visa (Type C) – Tourism</h6>
+          <h6 class="fw-semibold " id="visaTypeHeading">Schengen Visa (Type C) – Tourism</h6>
 
           <div class="row mt-3">
             <div class="col-md-4">
               <div class="text-muted">Category</div>
-              <div class="fw-semibold">Visitor</div>
+<div class="fw-semibold" id="userCategory">Visitor</div>
             </div>
             <div class="col-md-4">
               <div class="text-muted">Status</div>
@@ -456,7 +457,7 @@ body {
             </div>
             <div class="col-md-4">
               <div class="text-muted">Date</div>
-              <div class="fw-semibold">19 May 2025 | 02:32 AM</div>
+              <div class="fw-semibold" id="fromDateDisplay"></div>
             </div>
           </div>
 
@@ -471,18 +472,22 @@ body {
           <hr>
 
           <div class="mb-3">
-            <div class="fw-semibold mb-1">Visa Type</div>
-            <div><span class="checkmark">✔</span> Schengen Visa (Type C) – Tourism</div>
+            <div class="fw-semibold mb-1" >Visa Type</div>
+            <div id="visaTypeTitle">✔<span class="checkmark" ></span> </div>
           </div>
-
-          <div class="mb-3">
-            <div class="fw-semibold mb-1">Application Package Details</div>
-            <div><span class="checkmark">✔</span> Package <a class="file-link" href="#"><i class="material-icons download-icon">file_download</i>Download Package</a></div>
-            <div><span class="checkmark">✔</span> View Form <a class="file-link" href="#"><i class="material-icons view-icon">visibility</i>View</a> <a class="file-link" href="#"><i class="material-icons download-icon">file_download</i>Download</a></div>
-            <div><span class="checkmark">✔</span> Proof of Marital Status_6a2dfe00…<i class="material-icons download-icon">file_download</i></div>
-            <div><span class="checkmark">✔</span> National ID_6aacdb90…<i class="material-icons download-icon">file_download</i></div>
-          </div>
-
+<div class="mb-3">
+  <div class="fw-semibold mb-1">Application Package Details</div>
+  <div><span class="checkmark">✔</span> Package <a class="file-link" href="#"><i class="material-icons download-icon">file_download</i>Download Package</a></div>
+  <div><span class="checkmark">✔</span> View Form <a class="file-link" href="#"><i class="material-icons view-icon">visibility</i>View</a> <a class="file-link" href="#"><i class="material-icons download-icon">file_download</i>Download</a></div>
+  
+  <!-- Dynamic section for all uploaded documents -->
+  <div id="uploaded-documents-container">
+    <!-- Documents will be added here dynamically -->
+    <div id="no-documents-message" style="display: none;">
+      <span class="text-muted">No additional documents uploaded</span>
+    </div>
+  </div>
+</div>
 
 
            <div class="mb-3">
@@ -524,12 +529,12 @@ body {
 
   <div class="footer-bar mt-5">
       <div>
-        &copy; Nuron.AI Corp. | Powered by Intellivisa
+        &copy; | Powered by The Skytrails
       </div>
       <div>
         <a href="reviewA.html">
         <button class="btn btn-secondary me-2">Go Back</button></a>
-        <button class="btn btn-submit-custom">Submit</button>
+        
       </div>
     </div>
 
@@ -544,6 +549,110 @@ body {
 
   <script>
 
+document.addEventListener('DOMContentLoaded',function(){
+  const visaTitle=sessionStorage.getItem('selectedVisaTitle') || 'Visa Title' ;
+  document.getElementById('visaTypeHeading').textContent=visaTitle;
+});
+document.addEventListener('DOMContentLoaded',function(){
+  const visaTitle=sessionStorage.getItem('selectedVisaTitle') || 'Visa Title' ;
+  document.getElementById('visaTypeTitle').textContent=visaTitle;
+});
+
+
+
+function displayUploadedDocuments() {
+  const container = document.getElementById('uploaded-documents-container');
+  const noDocsMessage = document.getElementById('no-documents-message');
+  
+  // Clear all existing content
+  container.innerHTML = '';
+  
+  // Re-add the no documents message (hidden by default)
+  container.appendChild(noDocsMessage);
+  noDocsMessage.style.display = 'none';
+  
+  // Get documents from session storage
+  const sessionDocuments = JSON.parse(sessionStorage.getItem('uploadedDocuments')) || [];
+  
+  // Filter out invalid documents
+  const validDocuments = sessionDocuments.filter(doc => doc.docType && doc.imageUrl);
+  
+  if (validDocuments.length > 0) {
+    // Add each uploaded document to the container
+    validDocuments.forEach(doc => {
+      const docElement = document.createElement('div');
+      
+      // Shorten long file names
+      const shortenedFileName = doc.fileName.length > 20 
+        ? `${doc.fileName.substring(0, 10)}...${doc.fileName.substring(doc.fileName.lastIndexOf('.'))}`
+        : doc.fileName;
+      
+      docElement.innerHTML = `
+        <span class="checkmark">✔</span> ${doc.docType} - ${shortenedFileName}
+        <a class="file-link" href="${doc.imageUrl}" download="${doc.fileName || doc.docType}" title="Download ${doc.docType}">
+          <i class="material-icons download-icon">file_download</i>
+        </a>
+      `;
+      container.appendChild(docElement);
+    });
+  } else {
+    // Show "no documents" message if nothing was uploaded
+    noDocsMessage.style.display = 'block';
+  }
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', displayUploadedDocuments);
+
+const userData=JSON.parse(localStorage.getItem('visaData'));
+console.log(userData);
+
+if(userData && userData.fromDate){
+  const from=new Date(userData.fromDate);
+  console.log(from);
+
+  const formattedDateTime=new Intl.DateTimeFormat('en-IN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+    }).format(from);
+
+document.getElementById('fromDateDisplay').textContent= formattedDateTime;
+}
+
+/// visa Category 
+document.addEventListener('DOMContentLoaded',function(){
+  const userData=JSON.parse(localStorage.getItem('visaData'));
+  if(userData?.visaCategory){
+    document.getElementById('userCategory').textContent=userData.visaCategory;
+  }
+
+
+})
+
+// Wait for DOM to load
+// Wait for the DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve and parse user data from localStorage
+    const userData = JSON.parse(localStorage.getItem('visaData'));
+
+    if (userData && userData.firstName && userData.lastName) {
+        const fullName = `${userData.firstName} ${userData.lastName}`;
+        const userNameDisplay = document.getElementById('userNameDisplay');
+        userNameDisplay.innerHTML = `${fullName} <span class="text-success ms-2">✔</span>`;
+    }
+});
+/// dynamica country 
+document.addEventListener('DOMContentLoaded',function(){
+  const userData=JSON.parse(localStorage.getItem('visaData'));
+
+  if(userData && userData.destinationCountry){
+    document.getElementById('country').textContent=userData.destinationCountry;
+  }
+})
     document.addEventListener('DOMContentLoaded', () => {
   const signupData = JSON.parse(localStorage.getItem('signupData'));
   const visaData = JSON.parse(localStorage.getItem('visaData'));

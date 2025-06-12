@@ -184,7 +184,7 @@ body {
       gap: 10px;
       font-size: 20px;
       font-weight: 600;
-      color: white;
+      color: rgb(14, 13, 13);
       position: absolute;
       bottom: 20px;
       left: 20px;
@@ -206,7 +206,7 @@ body {
       border-radius: 16px;
       padding: 15px 25px;
       text-align: right;
-      color: white;
+      color: rgb(58, 51, 51);
       min-width: 180px;
     }
 
@@ -315,7 +315,7 @@ body {
        
       </a>
       <div class="d-flex align-items-center gap-4">
-        <a href="#" class="nav-link">Apply now</a>
+        <a href="./Form.html" class="nav-link">Apply now</a>
         <a href="#" class="nav-link">My Applications</a>
         <a href="#" class="nav-link">My Documents</a>
         <a href="#" class="nav-link">Show Walkthrough</a>
@@ -342,7 +342,7 @@ body {
   <div class="container py-5">
     <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
       <div class="mb-4 mb-lg-0" style="max-width: 57%;">
-        <h2 class="review-heading" id="reviewName">Abhinandan,Know before you go!</h2>
+        <h2 class="review-heading" id="reviewName">Know before you go!</h2>
         <p class="fs-5 text-muted">
          Check your visa type, fees, and docs needed—then hit  <span class="highlight-text">Start Application</span>  to keep things moving!
         </p>
@@ -408,16 +408,15 @@ body {
 
 
 
-
-  <div class="container">
+<div class="container">
     <div class="stats-card">
       <!-- Left -->
       <div class="left-content">
         <img src="https://cdn-icons-png.flaticon.com/512/221/221725.png" alt="Cityscape" height="32">
         <!-- Placeholder image, replace with your cityscape image -->
         <div class="country-box">
-          <img src="https://flagcdn.com/gb.svg" alt="UK Flag">
-          United Kingdom
+          <img id="country-flag" src="./flags/default-flag.svg" alt="Country Flag">
+          <span id="country-name">Loading...</span>
         </div>
       </div>
 
@@ -436,9 +435,6 @@ body {
       </div>
     </div>
   </div>
-
-
-
 
 
 
@@ -466,9 +462,9 @@ body {
     <div class="col-md-8">
       <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 class="fw-bold " style="white-space: pre-line;">Document Guidelines</h4>
-        <button class="btn btn-light border rounded-pill px-4">
-          <i class="bi bi-download"></i> Download
-        </button>
+        <button class="btn btn-light border rounded-pill px-4" id="downloadGuidelines">
+  <i class="bi bi-download"></i> Download
+</button>
       </div>
       <div id="guidelinesContent" class="document-guidelines">
         <!-- JS will populate document guidelines -->
@@ -488,7 +484,8 @@ body {
 
     <div class="footer-bar mt-5">
       <div>
-        &copy; Nuron.AI Corp. | Powered by Intellivisa
+               &copy; | Powered by The SkyTrails
+
       </div>
       <div>
         <a href="aihome.html">
@@ -502,13 +499,107 @@ body {
 
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 
 
 
 
 <script>
+
+
+// Add this script to your head section
+ const visaDataString = localStorage.getItem('visaData');
+  
+  if (visaDataString) {
+    try {
+      const visaData = JSON.parse(visaDataString);
+      
+      // Extract destination country - using the most specific property available
+      const countryName = visaData.destinationCountry || 
+                         visaData.arrCountyName || 
+                         'United Kingdom'; // fallback
+      
+      document.getElementById('country-name').textContent = countryName;
+      
+      // Set flag image based on country
+      const flagImage = document.getElementById('country-flag');
+      const flagImages = {
+        'Italy': './images/Italy.webp',
+        'India': './flags/in.svg',
+        'United Kingdom': './images/UK.png',
+        'United States': './images/united-states.png',
+        'Canada': './images/canada.png',
+        'Australia': './images/australia.png',
+        'France':'./images/France.png',
+        'Germany':'./images/Germany.png',
+        'Switzerland':'./images/Switzerland.png',
+        'Belgium':'./images/Belgium.png',
+        'Poland':'./images/poland.png',
+        'Portugal':'./images/',
+        'Netherlands':'./images/netherlands.png' 
+      };
+      
+      // Convert country name to standard format for matching
+      const standardizedCountryName = countryName.trim();
+      
+      // Set the flag image if available, otherwise use default
+      flagImage.src = flagImages[standardizedCountryName] || './flags/default-flag.svg';
+      flagImage.alt = `${countryName} Flag`;
+      
+    } catch (e) {
+      console.error('Error parsing visaData from localStorage:', e);
+      // Set defaults if there's an error
+      document.getElementById('country-name').textContent = 'United Kingdom';
+      document.getElementById('country-flag').src = './flags/gb.svg';
+    }
+  } else {
+    console.log('No visaData found in localStorage');
+    // Set defaults if no data found
+    document.getElementById('country-name').textContent = 'United Kingdom';
+    document.getElementById('country-flag').src = './flags/gb.svg';
+  }
+
+// Then modify the download button handler:
+document.getElementById('downloadGuidelines').addEventListener('click', function() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  
+  const country = document.getElementById('infoDestination').textContent || 'Visa';
+  const visaType = document.getElementById('infoVisaType').textContent || 'Guidelines';
+  
+  // Add title
+  doc.setFontSize(18);
+  doc.text(`${country} ${visaType} Requirements`, 10, 15);
+  
+  // Add guidelines content
+  const guidelinesBlocks = document.querySelectorAll('.guideline-block');
+  let yPosition = 30;
+  
+  guidelinesBlocks.forEach(block => {
+    const heading = block.querySelector('h6').textContent;
+    const content = block.querySelector('p').textContent;
+    
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'bold');
+    doc.text(heading, 10, yPosition);
+    yPosition += 7;
+    
+    doc.setFont(undefined, 'normal');
+    const splitText = doc.splitTextToSize(content, 180);
+    doc.text(splitText, 10, yPosition);
+    yPosition += (splitText.length * 7) + 10;
+    
+    // Add new page if needed
+    if (yPosition > 280) {
+      doc.addPage();
+      yPosition = 20;
+    }
+  });
+  
+  // Save the PDF
+  doc.save(`${country}_${visaType}_Requirements.pdf`);
+});
   const visaData = {
      Australia: {
     tourism: [
@@ -929,6 +1020,9 @@ function renderVisaOptions() {
     div.onclick = () => {
       document.querySelectorAll('.visa-option').forEach(el => el.classList.remove('active'));
       div.classList.add('active');
+
+        sessionStorage.setItem('selectedVisaTitle', visa.title);
+
       renderGuidelines(visa.guidelines);
     };
     container.appendChild(div);
@@ -1090,12 +1184,14 @@ function renderVisaOptions() {
   }
 });
 
+
  
  
  
  
  
  renderVisaOptions();
+
 </script>
 
 
