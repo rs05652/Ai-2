@@ -109,8 +109,8 @@ const countries = result.data.map(c => c.countryName).sort();
 
 // Add default option first
 const defaultOption = new Option("Please select the country", "");
-defaultOption.disabled = true;
-defaultOption.selected = true;
+// defaultOption.disabled = true;
+// defaultOption.selected = true;
 
 // Add to both selects
 passportCountrySelect.add(defaultOption.cloneNode(true));
