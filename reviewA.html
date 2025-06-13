@@ -3793,12 +3793,10 @@ body {
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
 <script>
 
 let uploadedImages = [];
-
- const savedDestinationCountry = localStorage.getItem('destinationCountry');
+const savedDestinationCountry = localStorage.getItem('destinationCountry');
 function showFormField(){
   document.querySelectorAll('[id^="form-"]').forEach(form => {
   form.style.display = 'none';
@@ -3905,65 +3903,48 @@ function renderProcessedDocs() {
 
 function renderErrorListFromBackend() {
   const errorListDiv = document.getElementById("errorList");
-  const badge = document.querySelector(".badge.rounded-pill");
-  
-  // Clear previous content
-  errorListDiv.innerHTML = '';
+  const errorContainer = document.createElement("div");
+  let errorCount = 0;
 
-  // Define required document types
-  const requiredDocTypes = [
-    "Passport",
-    "Aadhaar card",
-    "Certificate of Marriage",
-    "Marriage Certificate", 
-    "Income Tax Return Acknowledgement",
-    "Passbook",
-    "Residence Permit",
-    "GST Registration"
-  ];
+  uploadedImages.forEach(doc => {
+    const statusCode = doc.backendObj?.statusCode;
+    const errorDetails = doc.backendObj?.errors || doc.backendObj?.errorMessages || [];
 
-  // Check which documents are missing
-  const missingDocs = requiredDocTypes.filter(type => 
-    !uploadedImages.some(doc => doc.docType === type)
-  );
+    if (statusCode !== 200 || (Array.isArray(errorDetails) && errorDetails.length)) {
+      const title = document.createElement("div");
+      title.className = "error-category";
+      title.textContent = `${doc.docType} - ${doc.fileName}`;
+      errorContainer.appendChild(title);
 
-  if (missingDocs.length > 0) {
-    const sectionTitle = document.createElement("div");
-    sectionTitle.className = "error-category";
-    sectionTitle.textContent = "Missing Documents";
-    errorListDiv.appendChild(sectionTitle);
+      if (Array.isArray(errorDetails) && errorDetails.length) {
+        errorDetails.forEach(err => {
+          const errorItem = document.createElement("div");
+          errorItem.className = "error-item";
+          errorItem.innerHTML = `<i class="material-icons">warning</i>${err}`;
+          errorContainer.appendChild(errorItem);
+          errorCount++;
+        });
+      } else {
+        const fallback = document.createElement("div");
+        fallback.className = "error-item";
+        fallback.innerHTML = `<i class="material-icons">warning</i>Unknown error occurred (Status ${statusCode})`;
+        errorContainer.appendChild(fallback);
+        errorCount++;
+      }
+    }
+  });
 
-    missingDocs.forEach(docType => {
-      const errorItem = document.createElement("div");
-      errorItem.className = "error-item";
-      errorItem.innerHTML = `<i class="material-icons">error</i>${docType} has not been uploaded`;
-      errorListDiv.appendChild(errorItem);
-    });
-
-    badge.textContent = missingDocs.length;
-    badge.style.display = 'inline-block';
+  if (errorCount > 0) {
+    document.querySelector(".badge.rounded-pill").textContent = errorCount;
+    errorListDiv.innerHTML = '';
+    errorListDiv.appendChild(errorContainer);
   } else {
-    errorListDiv.innerHTML = `
-      <div class="error-item success">
-        <i class="material-icons">check_circle</i>
-        All required documents have been uploaded!
-      </div>`;
-    badge.style.display = 'none';
+    document.querySelector(".badge.rounded-pill").textContent = 0;
+    errorListDiv.innerHTML = `<div class="error-item"><i class="material-icons">check_circle</i>All documents processed successfully!</div>`;
   }
 }
 
-// Make sure to call this function after documents are loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Load any previously uploaded documents
-  const saved = sessionStorage.getItem("uploadedDocuments");
-  if (saved) {
-    uploadedImages = JSON.parse(saved);
-  }
-  
-  // Render the error list
-  renderErrorListFromBackend();
-});
-function renderMissingDocTypeErrors(container) {
+function renderMissingDocTypeErrors() {
   const allDocTypes = [
     "Passport",
     "Aadhaar card",
@@ -3975,19 +3956,27 @@ function renderMissingDocTypeErrors(container) {
     "GST Registration"
   ];
 
-  // When no documents uploaded, all are missing
-  const missingTypes = uploadedImages.length === 0 
-    ? allDocTypes 
-    : allDocTypes.filter(type => !uploadedImages.some(doc => doc.docType === type));
+  const uploadedDocTypes = uploadedImages.map(doc => doc.docType);
+  const missingTypes = allDocTypes.filter(type => !uploadedDocTypes.includes(type));
 
-  missingTypes.forEach(type => {
-    const errorItem = document.createElement("div");
-    errorItem.className = "error-item";
-    errorItem.innerHTML = `<i class="material-icons">error</i>${type} has not been uploaded`;
-    container.appendChild(errorItem);
-  });
+  if (missingTypes.length > 0) {
+    const errorListDiv = document.getElementById("errorList");
 
-  return missingTypes.length;
+    const sectionTitle = document.createElement("div");
+    sectionTitle.className = "error-category";
+    sectionTitle.textContent = "Missing Document Types";
+    errorListDiv.appendChild(sectionTitle);
+
+    missingTypes.forEach(type => {
+      const errorItem = document.createElement("div");
+      errorItem.className = "error-item";
+      errorItem.innerHTML = `<i class="material-icons">warning</i>${type} has not been uploaded`;
+      errorListDiv.appendChild(errorItem);
+    });
+
+    const badge = document.querySelector(".badge.rounded-pill");
+    badge.textContent = parseInt(badge.textContent) + missingTypes.length;
+  }
 }
 function splitFullName(fullName = '') {
   const parts = fullName.trim().split(/\s+/);
@@ -4031,7 +4020,6 @@ function autoFillFormFromAllDocuments() {
 
   if (hasNonPassport) {
     let extractedDetails = getFirstValidDocumentDetails();
-    console.log(extractedDetails);
     if (extractedDetails?.Name) {
       const { First_Name, Surname } = splitFullName(extractedDetails.Name);
       extractedDetails.First_Name = First_Name;
@@ -4092,49 +4080,6 @@ function getFirstValidPassportDetails() {
     }
   }
   return null;
-}
-
-function getDocumentFieldMap() {
-  return [
-    {
-      labels: ['First name(s)', 'Given name', 'First name'],
-      keys: ['First_Name'],
-      type: 'text',
-      processor: (value) => value || ''
-    },
-    {
-      labels: ['Surname(s)', 'Family name', 'Last name', 'Surname'],
-      keys: ['Surname'],
-      type: 'text',
-      processor: (value) => value || ''
-    },
-    {
-      labels: ['Date of birth', 'Birth date', 'DOB'],
-      keys: ['Date_of_Birth'],
-      type: 'date',
-      processor: (value) => value || ''
-    },
-    {
-      labels: ['Address', 'Residential address', 'Permanent address'],
-      keys: ['Address'],
-      type: 'textarea',
-      processor: (value) => value || ''
-    },
-    {
-      labels: ['Aadhaar Number', 'National Identity Number'],
-      keys: ['Document_Number'],
-      type: 'text',
-      processor: (value) => value || '',
-      docType: 'non-passport'
-    },
-    {
-      labels: ['Document Number', 'ID Number'],
-      keys: ['Document_Number'],
-      type: 'text',
-      processor: (value) => value || '',
-      docType: 'non-passport'
-    }
-  ];
 }
 
 function getPassportFieldMap() {
@@ -4204,24 +4149,130 @@ function getPassportFieldMap() {
   ];
 }
 
+function extractAddress(addressObj) {
+    console.log(addressObj,"address")
+  if (!addressObj || typeof addressObj !== 'object') return '';
+  // Try all possible keys for address object
+  const parts = [
+    addressObj.Village,
+    addressObj.VTC,
+    addressObj.PO,
+    addressObj.District,
+    addressObj['Sub District'] || addressObj.SubDistrict,
+    addressObj.State,
+    addressObj.PinCode
+  ]
+    .filter(part => part && part.toString().trim() !== '')
+    .join(', ');
+    console.log(parts,"address")
+  return parts;
+}
+
+function getDocumentFieldMap() {
+  return [
+    {
+      labels: ['First name(s)', 'Given name', 'First name'],
+      keys: ['First_Name'],
+      type: 'text',
+      processor: (value) => value || ''
+    },
+    {
+      labels: ['Surname(s)', 'Family name', 'Last name', 'Surname'],
+      keys: ['Surname'],
+      type: 'text',
+      processor: (value) => value || ''
+    },
+    {
+      labels: ['Date of birth', 'Birth date', 'DOB'],
+      keys: ['Date_of_Birth'],
+      type: 'date',
+      processor: (value) => value || ''
+    },
+    // Individual address fields
+    {
+      labels: ['State/Province'],
+      keys: ['Address'],
+      type: 'text',
+      processor: (address) => address && address.State ? address.State : ''
+    },
+    {
+      labels: ['Place'],
+      keys: ['Address'],
+      type: 'text',
+      processor: (address) => address && (address.Village || address.VTC || address.PO || address.District) 
+        ? [address.Village, address.VTC, address.PO, address.District].filter(Boolean).join(', ') : ''
+    },
+    {
+      labels: ['Postal Code'],
+      keys: ['Address'],
+      type: 'text',
+      processor: (address) => address && address.PinCode ? address.PinCode : ''
+    },
+    {
+      labels: ['Address', 'Residential address', 'Permanent address'],
+      keys: ['Address'],
+      type: 'text',
+      processor: (address) => {
+        if (!address || typeof address !== 'object') return '';
+        // Use all address fields except House/Flat/PinCode as "Address"
+        return [address.Village, address.VTC, address.PO, address.District, address['Sub District'] || address.SubDistrict, address.State]
+          .filter(Boolean)
+          .join(', ');
+      }
+    },
+    {
+      labels: ['House number'],
+      keys: ['Address'],
+      type: 'text',
+      processor: (address) => address && address.HouseNumber ? address.HouseNumber : ''
+    },
+    {
+      labels: ['Flat number'],
+      keys: ['Address'],
+      type: 'text',
+      processor: (address) => address && address.FlatNumber ? address.FlatNumber : ''
+    },
+    // Aadhaar/ID numbers
+    {
+      labels: ['Aadhaar Number', 'National Identity Number'],
+      keys: ['Document_Number'],
+      type: 'text',
+      processor: (value) => value || '',
+      docType: 'non-passport'
+    },
+    {
+      labels: ['Document Number', 'ID Number'],
+      keys: ['Document_Number'],
+      type: 'text',
+      processor: (value) => value || '',
+      docType: 'non-passport'
+    }
+  ];
+}
+
 function fillFormFields(details, fieldMap) {
   let fieldsFilled = 0;
   const filledInputs = new Set();
 
   fieldMap.forEach(mapping => {
     mapping.labels.forEach(labelText => {
-      const labels = Array.from(document.querySelectorAll('label')).filter(label => 
+      const labels = Array.from(document.querySelectorAll('label')).filter(label =>
         label.textContent.toLowerCase().includes(labelText.toLowerCase())
       );
 
       labels.forEach(label => {
         const input = getAssociatedInput(label);
         if (input && !filledInputs.has(input) && (input.tagName === 'INPUT' || input.tagName === 'TEXTAREA')) {
-          const rawValue = mapping.keys.reduce((val, key) => 
-            val || (details[key] !== null && details[key] !== undefined ? details[key] : null), 
-            null
-          );
-
+          let rawValue;
+          // For address-related keys, pass the whole address object
+          if (mapping.keys[0] === 'Address' && typeof details['Address'] === 'object') {
+            rawValue = details['Address'];
+          } else {
+            rawValue = mapping.keys.reduce((val, key) => 
+              val || (details[key] !== null && details[key] !== undefined ? details[key] : null),
+              null
+            );
+          }
           const processedValue = mapping.processor(rawValue);
 
           if (processedValue) {
@@ -4239,15 +4290,14 @@ function fillFormFields(details, fieldMap) {
 }
 
 function getAssociatedInput(label) {
+  // Handles both 'input' and 'textarea' (and 'select' just in case)
   let input = label.nextElementSibling;
   while (input && !['INPUT', 'TEXTAREA', 'SELECT'].includes(input.tagName)) {
     input = input.nextElementSibling;
   }
-
   if (!input && label.hasAttribute('for')) {
     input = document.getElementById(label.getAttribute('for'));
   }
-
   return input;
 }
 
@@ -4264,62 +4314,24 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function populateCountryDropdowns() {
-  // First show a loading state
-  document.querySelectorAll("select").forEach(select => {
-    const label = select.closest('.mb-3')?.querySelector('label')?.textContent?.toLowerCase() || '';
-    const isCountryField = label.includes("country") || label.includes("nationality") || 
-                         label.includes("place of birth") || label.includes("issuing state");
-    
-    if (isCountryField && select.options.length <= 1) {
-      select.innerHTML = '<option value="">Loading countries...</option>';
-      select.disabled = true;
-    }
-  });
-
-  fetch("https://back.theskytrails.com/skyTrails/grnconnect/getcountrylist")
-    .then(res => {
-      if (!res.ok) throw new Error('Failed to fetch countries');
-      return res.json();
-    })
+  fetch("https://restcountries.com/v3.1/all")
+    .then(res => res.json())
     .then(data => {
-      console.log(data);
-       const countryNames = data.data.map(c => c.countryName).sort();
+      const countryNames = data.map(c => c.name.common).sort();
       const options = '<option value="">-- Please Select --</option>' +
         countryNames.map(name => `<option value="${name}">${name}</option>`).join('');
 
+      // Target only the dropdowns related to countries/nationalities
       document.querySelectorAll("select").forEach(select => {
         const label = select.closest('.mb-3')?.querySelector('label')?.textContent?.toLowerCase() || '';
-        const isCountryField = label.includes("country") || label.includes("nationality") || 
-                             label.includes("place of birth") || label.includes("issuing state");
+        const isCountryField = label.includes("country") || label.includes("nationality") || label.includes("place of birth") || label.includes("issuing state");
 
-        if (isCountryField) {
+        if (isCountryField && select.options.length <= 1) {
           select.innerHTML = options;
-          select.disabled = false;
-        }
-      });
-    })
-    .catch(error => {
-      console.error('Error loading countries:', error);
-      // Fallback to basic country list
-      const fallbackCountries = ["India", "USA", "UK", "Canada", "Australia"];
-      const fallbackOptions = '<option value="">-- Please Select --</option>' +
-        fallbackCountries.map(name => `<option value="${name}">${name}</option>`).join('');
-      
-      document.querySelectorAll("select").forEach(select => {
-        const label = select.closest('.mb-3')?.querySelector('label')?.textContent?.toLowerCase() || '';
-        const isCountryField = label.includes("country") || label.includes("nationality") || 
-                             label.includes("place of birth") || label.includes("issuing state");
-        
-        if (isCountryField) {
-          select.innerHTML = fallbackOptions;
-          select.disabled = false;
         }
       });
     });
 }
-
-// Call the function when DOM is ready
-document.addEventListener('DOMContentLoaded', populateCountryDropdowns);
 
 document.addEventListener('DOMContentLoaded', () => {
   const signupData = JSON.parse(localStorage.getItem('signupData'));

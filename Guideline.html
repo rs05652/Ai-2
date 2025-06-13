@@ -1,352 +1,363 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Review - The Skytrails</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      /* background: linear-gradient(90deg, #fff4ee 0%, #fdeffb 55%, #e1eaff 100%); */
-      margin: 0;
-      
-    }
-
-   
-body {
-  background: linear-gradient(120deg, #ffffff 0%, #f8f2f8 48%, #e9bddd 100%);
-}
-
-    .nav-link {
-      font-weight: 600;
-      color: #1e1e1e;
-      font-size: 15px;
-    }
-    .nav-link:hover {
-      color: #f97316;
-    }
-    .tab-step {
-      background: #fbeee9;
-      padding: 10px 25px;
-      border-radius: 999px;
-      font-size: 16px;
-      font-weight: 500;
-      color: #333;
-    }
-    .tab-step.active {
-      border: 2px solid rgb(199, 187, 175);
-      color: #f97316;
-      background: #fff;
-      font-weight: 600;
-    }
-    .review-heading {
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: #1e1e1e;
-    }
-    .highlight-text {
-      color: #f97316;
-      font-style: italic;
-      font-weight: 600;
-    }
-    .review-box {
-      border: 2px solid #ffb8b8;
-      background: #fff1f1;
-      padding: 1rem 1.25rem;
-      border-radius: 15px;
-      margin-top: 1rem;
-    }
-   
-
-
-
-    .footer-bar {
-      margin-top: 3rem;
-      padding: 5px 10px;
-      /* background: linear-gradient(to right, #fbeee9, #f5e4f8); */
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-      color: #666;
-       max-width: 1140px; /* limit width */
-       max-height: 100px;
-   
-    }
-    .footer-bar .btn {
-      border-radius: 30px;
-      padding: 8px 20px;
-      font-weight: 600;
-      margin-top: 10px;
-         
-    }
-
-
-
- 
-.btn-submit-custom {
-      background-color: #f97316;
-      color: #fff;
-      border: none;
-    }
-    .btn-submit-custom:hover {
-      background-color: #fb923c;
-    }
-
-
-
- 
-
- 
-
-
-.info-bar {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 12px 28px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 40px;
-  font-size: 14px;
-  color: #1f1f1f;
-  white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.info-bar > div {
-  display: flex;
-  align-items: center;
-}
-
-.info-bar i {
-  font-size: 18px;
-  margin-right: 6px;
-  color: #333;
-}
-.logo-img {
-  max-height: 220px;
-  object-fit: contain;
-  display: block;
-}
-
-
-
- .stats-card {
-      /* background: linear-gradient(135deg, #fffdfc 0%, #ffeef2 30%, #f4ebfb 70%, #ecdfff 100%); */
-      border-radius: 20px;
-      padding: 30px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-      max-width: 100%;
-      margin: 40px auto;
-      min-height: 300px;
-      position: relative;
-    }
-
-
-    .left-container {
-  background-color: #fef3c7; /* Replace with your desired color */
-  padding: 20px;
-  border-radius: 16px;
-}
-
-.right-container {
-  background-color: #e0f2fe; /* Replace with your desired color */
-  padding: 20px;
-  border-radius: 16px;
-  overflow-y: auto;
-  max-height: 80vh;
-} */
-
-
-
-
-
-    .left-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .country-box {
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 12px;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 20px;
-      font-weight: 600;
-      color: rgb(14, 13, 13);
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-    }
-
-    .country-box img {
-      height: 24px;
-      width: auto;
-    }
-
-    .right-content {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .stat-box {
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 16px;
-      padding: 15px 25px;
-      text-align: right;
-      color: rgb(58, 51, 51);
-      min-width: 180px;
-    }
-
-    .stat-box .title {
-      font-size: 14px;
-      opacity: 0.85;
-    }
-
-    .stat-box .value {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .stat-box .subtext {
-      font-size: 12px;
-      opacity: 0.8;
-    }
-
-    .left-content img {
-      height: 22px;
-      margin-right: 8px;
-    }
-
-    @media (max-width: 768px) {
-      .stats-card {
-        flex-direction: column;
-        align-items: flex-start;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review - The Skytrails</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        /* background: linear-gradient(90deg, #fff4ee 0%, #fdeffb 55%, #e1eaff 100%); */
+        margin: 0;
       }
 
-      .right-content {
-        margin-top: 20px;
+      body {
+        background: linear-gradient(
+          120deg,
+          #ffffff 0%,
+          #f8f2f8 48%,
+          #e9bddd 100%
+        );
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: #1e1e1e;
+        font-size: 15px;
+      }
+      .nav-link:hover {
+        color: #f97316;
+      }
+      .tab-step {
+        background: #fbeee9;
+        padding: 10px 25px;
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+      }
+      .tab-step.active {
+        border: 2px solid rgb(199, 187, 175);
+        color: #f97316;
+        background: #fff;
+        font-weight: 600;
+      }
+      .review-heading {
+        font-size: 2.1rem;
+        font-weight: 700;
+        color: #1e1e1e;
+      }
+      .highlight-text {
+        color: #f97316;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .review-box {
+        border: 2px solid #ffb8b8;
+        background: #fff1f1;
+        padding: 1rem 1.25rem;
+        border-radius: 15px;
+        margin-top: 1rem;
+      }
+
+      .footer-bar {
+        margin-top: 3rem;
+        padding: 5px 10px;
+        /* background: linear-gradient(to right, #fbeee9, #f5e4f8); */
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #666;
+        max-width: 1140px; /* limit width */
+        max-height: 100px;
+      }
+      .footer-bar .btn {
+        border-radius: 30px;
+        padding: 8px 20px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      .btn-submit-custom {
+        background-color: #f97316;
+        color: #fff;
+        border: none;
+      }
+      .btn-submit-custom:hover {
+        background-color: #fb923c;
+      }
+
+      .info-bar {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 12px 28px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 40px;
+        font-size: 14px;
+        color: #1f1f1f;
+        white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-bar > div {
+        display: flex;
+        align-items: center;
+      }
+
+      .info-bar i {
+        font-size: 18px;
+        margin-right: 6px;
+        color: #333;
+      }
+      .logo-img {
+        max-height: 220px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .stats-card {
+        /* background: linear-gradient(135deg, #fffdfc 0%, #ffeef2 30%, #f4ebfb 70%, #ecdfff 100%); */
+        border-radius: 20px;
+        padding: 30px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        max-width: 100%;
+        margin: 40px auto;
+        min-height: 300px;
+        position: relative;
+      }
+
+      .left-container {
+        background-color: #fef3c7; /* Replace with your desired color */
+        padding: 20px;
+        border-radius: 16px;
+      }
+
+      .right-container {
+        background-color: #e0f2fe; /* Replace with your desired color */
+        padding: 20px;
+        border-radius: 16px;
+        overflow-y: auto;
+        max-height: 80vh;
+      }
+      */ .left-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
 
       .country-box {
-        position: static;
-        margin-top: 20px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: 600;
+        color: rgb(14, 13, 13);
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
       }
-    }
 
+      .country-box img {
+        height: 24px;
+        width: auto;
+      }
 
+      .right-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
 
+      .stat-box {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 16px;
+        padding: 15px 25px;
+        text-align: right;
+        color: rgb(58, 51, 51);
+        min-width: 180px;
+      }
 
+      .stat-box .title {
+        font-size: 14px;
+        opacity: 0.85;
+      }
 
+      .stat-box .value {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
 
+      .stat-box .subtext {
+        font-size: 12px;
+        opacity: 0.8;
+      }
 
+      .left-content img {
+        height: 22px;
+        margin-right: 8px;
+      }
 
+      @media (max-width: 768px) {
+        .stats-card {
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
-    .tab-btn {
-      font-weight: 600;
-      font-size: 18px;
-      border-radius: 12px;
-      padding: 10px 24px;
-      border: none;
-    }
+        .right-content {
+          margin-top: 20px;
+        }
 
-    .tab-btn.active {
-      background-color: white;
-      border: 2px solid #ddd;
-    }
+        .country-box {
+          position: static;
+          margin-top: 20px;
+        }
+      }
 
-    .visa-option {
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 16px;
-         background: linear-gradient(rgba(213, 213, 213, 0.1), rgba(111, 111, 111, 0.1));
-      transition: all 0.2s;
-      cursor: pointer;
-    }
+      .tab-btn {
+        font-weight: 600;
+        font-size: 18px;
+        border-radius: 12px;
+        padding: 10px 24px;
+        border: none;
+      }
 
-    .visa-option.active {
-      background: #ffe4d3;
-      border: 1px solid #ffae80;
-    }
+      .tab-btn.active {
+        background-color: white;
+        border: 2px solid #ddd;
+      }
 
-    .document-guidelines {
-      border-radius: 20px;
-          background: linear-gradient(rgba(213, 213, 213, 0.1), rgba(111, 111, 111, 0.1));
-      padding: 20px;
-      overflow-y: auto;
-      max-height: 600px;
-      scrollbar-width: none;
-    }
+      .visa-option {
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 16px;
+        background: linear-gradient(
+          rgba(213, 213, 213, 0.1),
+          rgba(111, 111, 111, 0.1)
+        );
+        transition: all 0.2s;
+        cursor: pointer;
+      }
 
-    .document-guidelines::-webkit-scrollbar {
-      display: none;
-    }
+      .visa-option.active {
+        background: #ffe4d3;
+        border: 1px solid #ffae80;
+      }
 
-    .guideline-block {
-      background: rgba(255, 255, 255, 0.3);
-      padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 14px;
-    }
+      .document-guidelines {
+        border-radius: 20px;
+        background: linear-gradient(
+          rgba(213, 213, 213, 0.1),
+          rgba(111, 111, 111, 0.1)
+        );
+        padding: 20px;
+        overflow-y: auto;
+        max-height: 600px;
+        scrollbar-width: none;
+      }
 
+      .document-guidelines::-webkit-scrollbar {
+        display: none;
+      }
 
-
-
-  </style>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg border-bottom px-4 py-3" style="background: linear-gradient(90deg, #ebe9e9 0%, #d4d4d4 55%, #e1eaff 100%);">
-    <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#" style="height: 44px;">
-        <img src="images/logo1.png" alt="Logo" class="logo-img">
-       
-      </a>
-      <div class="d-flex align-items-center gap-4">
-        <a href="./Form.html" class="nav-link">Apply now</a>
-        <a href="#" class="nav-link">My Applications</a>
-        <a href="#" class="nav-link">My Documents</a>
-        <a href="#" class="nav-link">Show Walkthrough</a>
-        <div class="dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Premium Services</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Visa Help</a></li>
-            <li><a class="dropdown-item" href="#">Consulting</a></li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <a id="profileInitial"   class="d-flex align-items-center justify-content-center rounded-circle bg-light" style="width: 36px; height: 36px; font-weight: 600; font-size: 14px; color: #555;" data-bs-toggle="dropdown">
-            A
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
+      .guideline-block {
+        background: rgba(255, 255, 255, 0.3);
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg border-bottom px-4 py-3"
+      style="
+        background: linear-gradient(
+          90deg,
+          #ebe9e9 0%,
+          #d4d4d4 55%,
+          #e1eaff 100%
+        );
+      "
+    >
+      <div class="container-fluid">
+        <a
+          class="navbar-brand d-flex align-items-center"
+          href="#"
+          style="height: 44px"
+        >
+          <img src="images/logo1.png" alt="Logo" class="logo-img" />
+        </a>
+        <div class="d-flex align-items-center gap-4">
+          <a href="./Form.html" class="nav-link">Apply now</a>
+          <a href="#" class="nav-link">My Applications</a>
+          <a href="#" class="nav-link">My Documents</a>
+          <a href="#" class="nav-link">Show Walkthrough</a>
+          <div class="dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              href="#"
+              >Premium Services</a
+            >
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Visa Help</a></li>
+              <li><a class="dropdown-item" href="#">Consulting</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <a
+              id="profileInitial"
+              class="d-flex align-items-center justify-content-center rounded-circle bg-light"
+              style="
+                width: 36px;
+                height: 36px;
+                font-weight: 600;
+                font-size: 14px;
+                color: #555;
+              "
+              data-bs-toggle="dropdown"
+            >
+              A
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="container py-5">
-    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
-      <div class="mb-4 mb-lg-0" style="max-width: 57%;">
-        <h2 class="review-heading" id="reviewName">Know before you go!</h2>
-        <p class="fs-5 text-muted">
-         Check your visa type, fees, and docs needed—then hit  <span class="highlight-text">Start Application</span>  to keep things moving!
-        </p>
-      </div>
+    <div class="container py-5">
+      <div
+        class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center"
+      >
+        <div class="mb-4 mb-lg-0" style="max-width: 57%">
+          <h2 class="review-heading" id="reviewName">Know before you go!</h2>
+          <p class="fs-5 text-muted">
+            Check your visa type, fees, and docs needed—then hit
+            <span class="highlight-text">Start Application</span> to keep things
+            moving!
+          </p>
+        </div>
 
         <!-- <div class="info-bar d-inline-flex px-4 py-2 align-items-center justify-content-start" style="background: rgba(0, 0, 0, 0.03); font-size: 12px; border-radius: 20px;">
   <div class="d-flex align-items-center me-3">
@@ -366,855 +377,1168 @@ body {
     May 26, 2025 – Jun 24, 2025
   </div>
 </div> -->
-    
 
-<div class="info-bar d-inline-flex px-4 py-2 align-items-center justify-content-start" style="background: rgba(0, 0, 0, 0.03); font-size: 12px; border-radius: 20px;">
-  <div class="d-flex align-items-center me-3">
-    <i class="material-icons me-1">location_on</i>
-    <span id="infoDestination">Destination</span>
-  </div>
-  <div class="d-flex align-items-center me-3">
-    <i class="material-icons me-1">badge</i>
-    <span id="infoVisaType">Visa Type</span>
-  </div>
-  <div class="d-flex align-items-center me-3">
-    <i class="material-icons me-1">timer</i>
-    <span id="infoDuration">Duration</span>
-  </div>
-  <div class="d-flex align-items-center text-muted">
-    <i class="material-icons me-1">calendar_today</i>
-    <span id="infoDates">Travel Dates</span>
-  </div>
-</div>
-
-
-
-
-
-
-
-</div>
-
-    <div class="d-flex align-items-center gap-4 pt-5 flex-wrap">
-      <div class="tab-step">Details</div>
-      <div class="tab-step active border border-warning">Guidelines</div>
-      <div class="tab-step">Upload</div>
-      <div class="tab-step ">Review</div>
-      <div class="tab-step">Submit</div>
-    </div>
-  </div>
-     
-
-
-
-
-<div class="container">
-    <div class="stats-card">
-      <!-- Left -->
-      <div class="left-content">
-        <img src="https://cdn-icons-png.flaticon.com/512/221/221725.png" alt="Cityscape" height="32">
-        <!-- Placeholder image, replace with your cityscape image -->
-        <div class="country-box">
-          <img id="country-flag"  alt="Country Flag">
-          <span id="country-name">Loading...</span>
+        <div
+          class="info-bar d-inline-flex px-4 py-2 align-items-center justify-content-start"
+          style="
+            background: rgba(0, 0, 0, 0.03);
+            font-size: 12px;
+            border-radius: 20px;
+          "
+        >
+          <div class="d-flex align-items-center me-3">
+            <i class="material-icons me-1">location_on</i>
+            <span id="infoDestination">Destination</span>
+          </div>
+          <div class="d-flex align-items-center me-3">
+            <i class="material-icons me-1">badge</i>
+            <span id="infoVisaType">Visa Type</span>
+          </div>
+          <div class="d-flex align-items-center me-3">
+            <i class="material-icons me-1">timer</i>
+            <span id="infoDuration">Duration</span>
+          </div>
+          <div class="d-flex align-items-center text-muted">
+            <i class="material-icons me-1">calendar_today</i>
+            <span id="infoDates">Travel Dates</span>
+          </div>
         </div>
       </div>
 
-      <!-- Right -->
-      <div class="right-content text-end">
-        <div class="stat-box">
-          <div class="title">Ease of applying</div>
-          <div class="value">12K+ users</div>
-          <div class="subtext">Easy document upload</div>
+      <div class="d-flex align-items-center gap-4 pt-5 flex-wrap">
+        <div class="tab-step">Details</div>
+        <div class="tab-step active border border-warning">Guidelines</div>
+        <div class="tab-step">Upload</div>
+        <div class="tab-step">Review</div>
+        <div class="tab-step">Submit</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="stats-card">
+        <!-- Left -->
+        <div class="left-content">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/221/221725.png"
+            alt="Cityscape"
+            height="32"
+          />
+          <!-- Placeholder image, replace with your cityscape image -->
+          <div class="country-box">
+            <img id="country-flag" alt="Country Flag" />
+            <span id="country-name">Loading...</span>
+          </div>
         </div>
-        <div class="stat-box">
-          <div class="title">Time to Upload</div>
-          <div class="value">02:50 s</div>
-          <div class="subtext">Average form filling time</div>
+
+        <!-- Right -->
+        <div class="right-content text-end">
+          <div class="stat-box">
+            <div class="title">Ease of applying</div>
+            <div class="value">12K+ users</div>
+            <div class="subtext">Easy document upload</div>
+          </div>
+          <div class="stat-box">
+            <div class="title">Time to Upload</div>
+            <div class="value">02:50 s</div>
+            <div class="subtext">Average form filling time</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
+    <div class="container">
+      <div class="d-flex mb-4">
+        <button class="tab-btn active me-3" onclick="switchTab('tourism')">
+          Tourism
+        </button>
+        <button class="tab-btn" onclick="switchTab('business')">
+          Business
+        </button>
+      </div>
 
+      <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+          <div id="visaOptions">
+            <!-- JS will populate visa options -->
+          </div>
+        </div>
 
-
-
- 
-
-
-
-<div class="container">
-  <div class="d-flex mb-4">
-    <button class="tab-btn active me-3" onclick="switchTab('tourism')">Tourism</button>
-    <button class="tab-btn" onclick="switchTab('business')">Business</button>
-  </div>
-
-  <div class="row">
-    <!-- Left Column -->
-    <div class="col-md-4">
-      <div id="visaOptions">
-        <!-- JS will populate visa options -->
+        <!-- Right Column -->
+        <div class="col-md-8">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="fw-bold" style="white-space: pre-line">
+              Document Guidelines
+            </h4>
+            <button
+              class="btn btn-light border rounded-pill px-4"
+              id="downloadGuidelines"
+            >
+              <i class="bi bi-download"></i> Download
+            </button>
+          </div>
+          <div id="guidelinesContent" class="document-guidelines">
+            <!-- JS will populate document guidelines -->
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Right Column -->
-    <div class="col-md-8">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="fw-bold " style="white-space: pre-line;">Document Guidelines</h4>
-        <button class="btn btn-light border rounded-pill px-4" id="downloadGuidelines">
-  <i class="bi bi-download"></i> Download
-</button>
-      </div>
-      <div id="guidelinesContent" class="document-guidelines">
-        <!-- JS will populate document guidelines -->
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-   <div class="container py-4  ">
-  
-
-    <div class="footer-bar mt-5">
-      <div>
-               &copy; | Powered by The SkyTrails
-
-      </div>
-      <div>
-        <a href="aihome.html">
-        <button class="btn btn-secondary me-2">Go Back</button></a>
-        <a href="upload2.html">
-        <button class="btn btn-submit-custom">Submit</button></a>
+    <div class="container py-4">
+      <div class="footer-bar mt-5">
+        <div>&copy; | Powered by The SkyTrails</div>
+        <div>
+          <a href="aihome.html">
+            <button class="btn btn-secondary me-2">Go Back</button></a
+          >
+          <a href="upload2.html">
+            <button class="btn btn-submit-custom">Submit</button></a
+          >
+        </div>
       </div>
     </div>
-</div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+    <script>
+      // Add this script to your head section
+      const visaDataString = localStorage.getItem("visaData");
 
+      if (visaDataString) {
+        try {
+          const visaData = JSON.parse(visaDataString);
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+          // Extract destination country - using the most specific property available
+          const countryName =
+            visaData.destinationCountry ||
+            visaData.arrCountyName ||
+            "United Kingdom"; // fallback
 
+          document.getElementById("country-name").textContent = countryName;
 
+          // Set flag image based on country
+          const flagImage = document.getElementById("country-flag");
+          const flagImages = {
+            Italy: "./images/Italy.webp",
+            India: "./flags/in.svg",
+            "United Kingdom": "./images/UK.png",
+            "United States": "./images/united-states.png",
+            Canada: "./images/canada.png",
+            Australia: "./images/australia.png",
+            France: "./images/France.png",
+            Germany: "./images/Germany.png",
+            Switzerland: "./images/Switzerland.png",
+            Belgium: "./images/Belgium.png",
+            Poland: "./images/poland.png",
+            Portugal: "./images/",
+            Netherlands: "./images/netherlands.png",
+          };
 
+          // Convert country name to standard format for matching
+          const standardizedCountryName = countryName.trim();
 
+          // Set the flag image if available, otherwise use default
+          flagImage.src =
+            flagImages[standardizedCountryName] || "./flags/default-flag.svg";
+          flagImage.alt = `${countryName} Flag`;
+        } catch (e) {
+          console.error("Error parsing visaData from localStorage:", e);
+          // Set defaults if there's an error
+          document.getElementById("country-name").textContent =
+            "United Kingdom";
+          document.getElementById("country-flag").src = "./flags/gb.svg";
+        }
+      } else {
+        console.log("No visaData found in localStorage");
+        // Set defaults if no data found
+        document.getElementById("country-name").textContent = "United Kingdom";
+        document.getElementById("country-flag").src = "./flags/gb.svg";
+      }
 
-<script>
+      // Then modify the download button handler:
+      document
+        .getElementById("downloadGuidelines")
+        .addEventListener("click", function () {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
 
+          const country =
+            document.getElementById("infoDestination").textContent || "Visa";
+          const visaType =
+            document.getElementById("infoVisaType").textContent || "Guidelines";
 
-// Add this script to your head section
- const visaDataString = localStorage.getItem('visaData');
-  
-  if (visaDataString) {
-    try {
-      const visaData = JSON.parse(visaDataString);
-      
-      // Extract destination country - using the most specific property available
-      const countryName = visaData.destinationCountry || 
-                         visaData.arrCountyName || 
-                         'United Kingdom'; // fallback
-      
-      document.getElementById('country-name').textContent = countryName;
-      
-      // Set flag image based on country
-      const flagImage = document.getElementById('country-flag');
-      const flagImages = {
-        'Italy': './images/Italy.webp',
-        'India': './flags/in.svg',
-        'United Kingdom': './images/UK.png',
-        'United States': './images/united-states.png',
-        'Canada': './images/canada.png',
-        'Australia': './images/australia.png',
-        'France':'./images/France.png',
-        'Germany':'./images/Germany.png',
-        'Switzerland':'./images/Switzerland.png',
-        'Belgium':'./images/Belgium.png',
-        'Poland':'./images/poland.png',
-        'Portugal':'./images/',
-        'Netherlands':'./images/netherlands.png' 
+          // Add title
+          doc.setFontSize(18);
+          doc.text(`${country} ${visaType} Requirements`, 10, 15);
+
+          // Add guidelines content
+          const guidelinesBlocks =
+            document.querySelectorAll(".guideline-block");
+          let yPosition = 30;
+
+          guidelinesBlocks.forEach((block) => {
+            const heading = block.querySelector("h6").textContent;
+            const content = block.querySelector("p").textContent;
+
+            doc.setFontSize(12);
+            doc.setFont(undefined, "bold");
+            doc.text(heading, 10, yPosition);
+            yPosition += 7;
+
+            doc.setFont(undefined, "normal");
+            const splitText = doc.splitTextToSize(content, 180);
+            doc.text(splitText, 10, yPosition);
+            yPosition += splitText.length * 7 + 10;
+
+            // Add new page if needed
+            if (yPosition > 280) {
+              doc.addPage();
+              yPosition = 20;
+            }
+          });
+
+          // Save the PDF
+          doc.save(`${country}_${visaType}_Requirements.pdf`);
+        });
+      const visaData = {
+        Australia: {
+          tourism: [
+            {
+              title: "Standard Visitor Visa (Tourism)",
+              duration: "6 months",
+              fee: "£115",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+            {
+              title: "2-Year Long-term Standard Visitor Visa",
+              duration: "2 years",
+              fee: "£432",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+            {
+              title: "5-Year Long-term Standard Visitor Visa",
+              duration: "5 years",
+              fee: "£776",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+
+            {
+              title: "10-Year Long-term Standard Visitor Visa",
+              duration: "10 years",
+              fee: "£963",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+
+            {
+              title: "standars Visitor Visa",
+              duration: "6 months",
+              fee: "£115",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "Bank statements or financial documents showing sufficient funds to cover tuition fees and living costs.\n\nIf using a bank loan, submit the loan approval letter along with other financial documents.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "Proof of Enrollment: A letter from the educational institution confirming the enrollment in the course.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If you are being sponsored, provide a sponsorship letter confirming the details of your sponsorship, the purpose of your visit, and the sponsor's financial commitment. This should be supported by financial documents like bank statements or proof of income. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+          ],
+          business: [
+            {
+              title: "Standard Business Visa",
+              duration: "6 months",
+              fee: "£115",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+          ],
+        },
+
+        Germany: {
+          tourism: [
+            {
+              title: "Schengen Visa (Type C) – Tourism",
+              duration: "180 days",
+              fee: "£90",
+              time: "Approx. 15 days",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
+                },
+                {
+                  heading: "Application Form",
+                  text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
+                },
+
+                {
+                  heading: "Letter",
+                  text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
+                },
+              ],
+            },
+          ],
+          business: [
+            {
+              title: "Schengen Visa (Type C) – Business",
+              duration: "180 days",
+              fee: "£90",
+              time: "Approx. 15 days",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
+                },
+                {
+                  heading: "Application Form",
+                  text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
+                },
+
+                {
+                  heading: "Letter",
+                  text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
+                },
+              ],
+            },
+          ],
+        },
+
+        Portugal: {
+          tourism: [
+            {
+              title: "Schengen Visa (Type C) – Tourism",
+              duration: "180 days",
+              fee: "£90",
+              time: "Approx. 15 days",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid passport (must be valid for at least 3 months beyond the intended departure from the Schengen area, with at least two blank pages.)\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
+                },
+                {
+                  heading: "Application Form",
+                  text: "Completed and signed Schengen visa application form with a photograph attached.\n\n.The form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
+                },
+
+                {
+                  heading: "Photo",
+                  text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
+                },
+
+                {
+                  heading: "Letter",
+                  text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
+                },
+              ],
+            },
+          ],
+          business: [
+            {
+              title: "Schengen Visa (Type C) – Business",
+              duration: "180 days",
+              fee: "£90",
+              time: "Approx. 15 days",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
+                },
+                {
+                  heading: "Application Form",
+                  text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
+                },
+
+                {
+                  heading: "Letter",
+                  text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
+                },
+              ],
+            },
+          ],
+        },
+
+        France: {
+          tourism: [
+            {
+              title: "Schengen Visa (Type C) – Tourism",
+              duration: "180 days",
+              fee: "£90",
+              time: "Approx. 15 days",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid passport (must be valid for at least 3 months beyond the intended departure from the Schengen area, with at least two blank pages.)\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
+                },
+                {
+                  heading: "Application Form",
+                  text: "Completed and signed Schengen visa application form with a photograph attached.\n\n.The form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
+                },
+
+                {
+                  heading: "Photo",
+                  text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
+                },
+
+                {
+                  heading: "Letter",
+                  text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
+                },
+              ],
+            },
+          ],
+          business: [
+            {
+              title: "Schengen Visa (Type C) – Business",
+              duration: "180 days",
+              fee: "£90",
+              time: "Approx. 15 days",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
+                },
+                {
+                  heading: "Application Form",
+                  text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
+                },
+
+                {
+                  heading: "Letter",
+                  text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
+                },
+              ],
+            },
+          ],
+        },
+
+        Italy: {
+          tourism: [
+            {
+              title: "Schengen Visa (Type C) – Tourism",
+              duration: "180 days",
+              fee: "£90",
+              time: "Approx. 15 days",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid passport (must be valid for at least 3 months beyond the intended departure from the Schengen area, with at least two blank pages.)\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
+                },
+                {
+                  heading: "Application Form",
+                  text: "Completed and signed Schengen visa application form with a photograph attached.\n\n.The form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
+                },
+
+                {
+                  heading: "Photo",
+                  text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
+                },
+
+                {
+                  heading: "Letter",
+                  text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
+                },
+              ],
+            },
+          ],
+          business: [
+            {
+              title: "Schengen Visa (Type C) – Business",
+              duration: "180 days",
+              fee: "£90",
+              time: "Approx. 15 days",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
+                },
+                {
+                  heading: "Application Form",
+                  text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
+                },
+
+                {
+                  heading: "Letter",
+                  text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
+                },
+              ],
+            },
+          ],
+        },
+
+        "United Kingdom": {
+          tourism: [
+            {
+              title: "Standard Visitor Visa (Tourism)",
+              duration: "6 months",
+              fee: "£115",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+            {
+              title: "2-Year Long-term Standard Visitor Visa",
+              duration: "2 years",
+              fee: "£432",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+            {
+              title: "5-Year Long-term Standard Visitor Visa",
+              duration: "5 years",
+              fee: "£771",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+
+            {
+              title: "10-Year Long-term Standard Visitor Visa",
+              duration: "10 years",
+              fee: "£963",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+
+            {
+              title: "standars Visitor Visa(study)",
+              duration: "6 months",
+              fee: "£115",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "Bank statements or financial documents showing sufficient funds to cover tuition fees and living costs.\n\nIf using a bank loan, submit the loan approval letter along with other financial documents.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "Proof of Enrollment: A letter from the educational institution confirming the enrollment in the course.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If you are being sponsored, provide a sponsorship letter confirming the details of your sponsorship, the purpose of your visit, and the sponsor's financial commitment. This should be supported by financial documents like bank statements or proof of income. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+          ],
+          business: [
+            {
+              title: "Standard Business Visa",
+              duration: "6 months",
+              fee: "£115",
+              time: "Approx. 3 weeks",
+              guidelines: [
+                {
+                  heading: "Passport",
+                  text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
+                },
+                {
+                  heading: "Proof of Funds",
+                  text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
+                },
+                {
+                  heading: "Proof of Travel",
+                  text: "Details of flight bookings and/or accommodation arrangements.",
+                },
+                {
+                  heading: "Photo",
+                  text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
+                },
+                {
+                  heading: "Letter",
+                  text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
+                },
+                {
+                  heading: "Other",
+                  text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
+                },
+              ],
+            },
+          ],
+        },
       };
-      
-      // Convert country name to standard format for matching
-      const standardizedCountryName = countryName.trim();
-      
-      // Set the flag image if available, otherwise use default
-      flagImage.src = flagImages[standardizedCountryName] || './flags/default-flag.svg';
-      flagImage.alt = `${countryName} Flag`;
-      
-    } catch (e) {
-      console.error('Error parsing visaData from localStorage:', e);
-      // Set defaults if there's an error
-      document.getElementById('country-name').textContent = 'United Kingdom';
-      document.getElementById('country-flag').src = './flags/gb.svg';
-    }
-  } else {
-    console.log('No visaData found in localStorage');
-    // Set defaults if no data found
-    document.getElementById('country-name').textContent = 'United Kingdom';
-    document.getElementById('country-flag').src = './flags/gb.svg';
-  }
 
-// Then modify the download button handler:
-document.getElementById('downloadGuidelines').addEventListener('click', function() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  
-  const country = document.getElementById('infoDestination').textContent || 'Visa';
-  const visaType = document.getElementById('infoVisaType').textContent || 'Guidelines';
-  
-  // Add title
-  doc.setFontSize(18);
-  doc.text(`${country} ${visaType} Requirements`, 10, 15);
-  
-  // Add guidelines content
-  const guidelinesBlocks = document.querySelectorAll('.guideline-block');
-  let yPosition = 30;
-  
-  guidelinesBlocks.forEach(block => {
-    const heading = block.querySelector('h6').textContent;
-    const content = block.querySelector('p').textContent;
-    
-    doc.setFontSize(12);
-    doc.setFont(undefined, 'bold');
-    doc.text(heading, 10, yPosition);
-    yPosition += 7;
-    
-    doc.setFont(undefined, 'normal');
-    const splitText = doc.splitTextToSize(content, 180);
-    doc.text(splitText, 10, yPosition);
-    yPosition += (splitText.length * 7) + 10;
-    
-    // Add new page if needed
-    if (yPosition > 280) {
-      doc.addPage();
-      yPosition = 20;
-    }
-  });
-  
-  // Save the PDF
-  doc.save(`${country}_${visaType}_Requirements.pdf`);
-});
-  const visaData = {
-     Australia: {
-    tourism: [
-      {
-        title: 'Standard Visitor Visa (Tourism)',
-        duration: '6 months',
-        fee: '£115',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      },
-      {
-        title: '2-Year Long-term Standard Visitor Visa',
-        duration: '2 years',
-        fee: '£432',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      },
-      {
-        title: '5-Year Long-term Standard Visitor Visa',
-        duration: '5 years',
-        fee: '£776',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      
-      },
+      // let currentTab = 'tourism';
 
+      // function switchTab(tab) {
+      //   currentTab = tab;
+      //   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      //   event.target.classList.add('active');
+      //   renderVisaOptions();
+      // }
 
-      {
-        title: '10-Year Long-term Standard Visitor Visa',
-        duration: '10 years',
-        fee: '£963',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      },
+      // function renderVisaOptions() {
+      //   const container = document.getElementById('visaOptions');
+      //   container.innerHTML = '';
+      //   visaData[currentTab].forEach((visa, index) => {
+      //     const div = document.createElement('div');
+      //     div.className = 'visa-option' + (index === 0 ? ' active' : '');
+      //     div.innerHTML = `
+      //       <h6 class="fw-semibold">${visa.title}</h6>
+      //       <div class="text-muted small">Duration: ${visa.duration}</div>
+      //       <div class="text-muted small">Gov Fee: ${visa.fee}</div>
+      //       <div class="text-muted small">Processing Time: ${visa.time}</div>
+      //     `;
+      //     div.onclick = () => {
+      //       document.querySelectorAll('.visa-option').forEach(el => el.classList.remove('active'));
+      //       div.classList.add('active');
+      //       renderGuidelines(visa.guidelines);
+      //     };
+      //     container.appendChild(div);
+      //     if (index === 0) renderGuidelines(visa.guidelines);
+      //   });
+      // }
 
-      {
-        title: 'standars Visitor Visa',
-        duration: '6 months',
-        fee: '£115',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'Bank statements or financial documents showing sufficient funds to cover tuition fees and living costs.\n\nIf using a bank loan, submit the loan approval letter along with other financial documents.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'Proof of Enrollment: A letter from the educational institution confirming the enrollment in the course.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If you are being sponsored, provide a sponsorship letter confirming the details of your sponsorship, the purpose of your visit, and the sponsor's financial commitment. This should be supported by financial documents like bank statements or proof of income. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
+      let currentTab = "tourism";
+      let currentCountry = "Australia"; // default
+
+      function switchTab(tab) {
+        currentTab = tab;
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+        renderVisaOptions();
       }
-    ],
-    business: [
-      {
-        title: 'Standard Business Visa',
-        duration: '6 months',
-        fee: '£115',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      }
-    ]
-     },
 
-      Germany:{
-        tourism: [
-      {
-        title: 'Schengen Visa (Type C) – Tourism',
-        duration: '180 days',
-        fee: '£90',
-        time: 'Approx. 15 days',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.' },
-          { heading: 'Application Form', text: 'Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.' },
-          { heading: 'Photo', text: 'Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years' },
-          { heading: 'Proof of Travel', text: 'Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.' },
-          
-          { heading: 'Letter', text: 'Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`}
-        ]
-      },
-         ],
-     business:[
-      {
-        title: 'Schengen Visa (Type C) – Business',
-        duration: '180 days',
-        fee: '£90',
-        time: 'Approx. 15 days',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.' },
-          { heading: 'Application Form', text: 'Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.' },
-          { heading: 'Photo', text: 'Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years' },
-          { heading: 'Proof of Travel', text: 'Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.' },
-          
-          { heading: 'Letter', text: 'Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`}
-        ]
-      },
-    ]
-      },
+      function renderVisaOptions() {
+        const container = document.getElementById("visaOptions");
+        container.innerHTML = "";
 
-       Portugal:{
-        tourism: [
-      {
-        title: 'Schengen Visa (Type C) – Tourism',
-        duration: '180 days',
-        fee: '£90',
-        time: 'Approx. 15 days',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid passport (must be valid for at least 3 months beyond the intended departure from the Schengen area, with at least two blank pages.)\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.' },
-   { heading: 'Application Form', text: 'Completed and signed Schengen visa application form with a photograph attached.\n\n.The form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.' },
+        const visas = visaData[currentCountry]?.[currentTab] || [];
 
-          { heading: 'Photo', text: 'Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years' },
-          { heading: 'Proof of Travel', text: 'Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.' },
-          
-          { heading: 'Letter', text: 'Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`}
-        ]
-      },
-         ],
-     business:[
-      {
-        title: 'Schengen Visa (Type C) – Business',
-        duration: '180 days',
-        fee: '£90',
-        time: 'Approx. 15 days',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.' },
-          { heading: 'Application Form', text: 'Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.' },
-          { heading: 'Photo', text: 'Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years' },
-          { heading: 'Proof of Travel', text: 'Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.' },
-          
-          { heading: 'Letter', text: 'Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`}
-        ]
-      },
-    ]
-      },
+        if (visas.length === 0) {
+          container.innerHTML =
+            '<div class="text-muted">No visa options available for this category and country.</div>';
+          return;
+        }
 
-
-      France:{
-        tourism: [
-      {
-        title: 'Schengen Visa (Type C) – Tourism',
-        duration: '180 days',
-        fee: '£90',
-        time: 'Approx. 15 days',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid passport (must be valid for at least 3 months beyond the intended departure from the Schengen area, with at least two blank pages.)\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.' },
-   { heading: 'Application Form', text: 'Completed and signed Schengen visa application form with a photograph attached.\n\n.The form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.' },
-
-          { heading: 'Photo', text: 'Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years' },
-          { heading: 'Proof of Travel', text: 'Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.' },
-          
-          { heading: 'Letter', text: 'Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`}
-        ]
-      },
-         ],
-     business:[
-      {
-        title: 'Schengen Visa (Type C) – Business',
-        duration: '180 days',
-        fee: '£90',
-        time: 'Approx. 15 days',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.' },
-          { heading: 'Application Form', text: 'Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.' },
-          { heading: 'Photo', text: 'Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years' },
-          { heading: 'Proof of Travel', text: 'Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.' },
-          
-          { heading: 'Letter', text: 'Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`}
-        ]
-      },
-    ]
-      },
-
-      Italy:{
-        tourism: [
-      {
-        title: 'Schengen Visa (Type C) – Tourism',
-        duration: '180 days',
-        fee: '£90',
-        time: 'Approx. 15 days',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid passport (must be valid for at least 3 months beyond the intended departure from the Schengen area, with at least two blank pages.)\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.' },
-   { heading: 'Application Form', text: 'Completed and signed Schengen visa application form with a photograph attached.\n\n.The form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.' },
-
-          { heading: 'Photo', text: 'Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years' },
-          { heading: 'Proof of Travel', text: 'Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.' },
-          
-          { heading: 'Letter', text: 'Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`}
-        ]
-      },
-         ],
-     business:[
-      {
-        title: 'Schengen Visa (Type C) – Business',
-        duration: '180 days',
-        fee: '£90',
-        time: 'Approx. 15 days',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport’s identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.' },
-          { heading: 'Application Form', text: 'Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.' },
-          { heading: 'Photo', text: 'Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years' },
-          { heading: 'Proof of Travel', text: 'Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.' },
-          
-          { heading: 'Letter', text: 'Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor’s financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor’s identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`}
-        ]
-      },
-    ]
-      },
-
-      "United Kingdom": {
-    tourism: [
-      {
-        title: 'Standard Visitor Visa (Tourism)',
-        duration: '6 months',
-        fee: '£115',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-          { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      },
-      {
-        title: '2-Year Long-term Standard Visitor Visa',
-        duration: '2 years',
-        fee: '£432',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      },
-      {
-        title: '5-Year Long-term Standard Visitor Visa',
-        duration: '5 years',
-        fee: '£771',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      
-      },
-
-
-      {
-        title: '10-Year Long-term Standard Visitor Visa',
-        duration: '10 years',
-        fee: '£963',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      },
-
-      {
-        title: 'standars Visitor Visa(study)',
-        duration: '6 months',
-        fee: '£115',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'Bank statements or financial documents showing sufficient funds to cover tuition fees and living costs.\n\nIf using a bank loan, submit the loan approval letter along with other financial documents.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'Proof of Enrollment: A letter from the educational institution confirming the enrollment in the course.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If you are being sponsored, provide a sponsorship letter confirming the details of your sponsorship, the purpose of your visit, and the sponsor's financial commitment. This should be supported by financial documents like bank statements or proof of income. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      }
-    ],
-    business: [
-      {
-        title: 'Standard Business Visa',
-        duration: '6 months',
-        fee: '£115',
-        time: 'Approx. 3 weeks',
-        guidelines: [
-                    { heading: 'Passport', text: 'Valid Passport for the entire duration of the stay and have at least one blank page.' },
-          { heading: 'Proof of Funds', text: 'For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.' },
-          { heading: 'Proof of Travel', text: 'Details of flight bookings and/or accommodation arrangements.' },
-          { heading: 'Photo', text: 'Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).' },
-          { heading: 'Letter', text: 'If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.' },
-          { heading: 'Other', text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`}
-        ]
-      }
-    ]
-     },
-
-      
-
-  };
-
-  // let currentTab = 'tourism';
-
-  // function switchTab(tab) {
-  //   currentTab = tab;
-  //   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-  //   event.target.classList.add('active');
-  //   renderVisaOptions();
-  // }
-
-  // function renderVisaOptions() {
-  //   const container = document.getElementById('visaOptions');
-  //   container.innerHTML = '';
-  //   visaData[currentTab].forEach((visa, index) => {
-  //     const div = document.createElement('div');
-  //     div.className = 'visa-option' + (index === 0 ? ' active' : '');
-  //     div.innerHTML = `
-  //       <h6 class="fw-semibold">${visa.title}</h6>
-  //       <div class="text-muted small">Duration: ${visa.duration}</div>
-  //       <div class="text-muted small">Gov Fee: ${visa.fee}</div>
-  //       <div class="text-muted small">Processing Time: ${visa.time}</div>
-  //     `;
-  //     div.onclick = () => {
-  //       document.querySelectorAll('.visa-option').forEach(el => el.classList.remove('active'));
-  //       div.classList.add('active');
-  //       renderGuidelines(visa.guidelines);
-  //     };
-  //     container.appendChild(div);
-  //     if (index === 0) renderGuidelines(visa.guidelines);
-  //   });
-  // }
-
- 
- let currentTab = 'tourism';
-let currentCountry = 'Australia'; // default
-
-function switchTab(tab) {
-  currentTab = tab;
-  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-  renderVisaOptions();
-}
-
-function renderVisaOptions() {
-  const container = document.getElementById('visaOptions');
-  container.innerHTML = '';
-
-  const visas = visaData[currentCountry]?.[currentTab] || [];
-
-  if (visas.length === 0) {
-    container.innerHTML = '<div class="text-muted">No visa options available for this category and country.</div>';
-    return;
-  }
-
-  visas.forEach((visa, index) => {
-    const div = document.createElement('div');
-    div.className = 'visa-option' + (index === 0 ? ' active' : '');
-    div.innerHTML = `
+        visas.forEach((visa, index) => {
+          const div = document.createElement("div");
+          div.className = "visa-option" + (index === 0 ? " active" : "");
+          div.innerHTML = `
       <h6 class="fw-semibold">${visa.title}</h6>
       <div class="text-muted small">Duration: ${visa.duration}</div>
       <div class="text-muted small">Gov Fee: ${visa.fee}</div>
       <div class="text-muted small">Processing Time: ${visa.time}</div>
     `;
-    div.onclick = () => {
-      document.querySelectorAll('.visa-option').forEach(el => el.classList.remove('active'));
-      div.classList.add('active');
+          div.onclick = () => {
+            document
+              .querySelectorAll(".visa-option")
+              .forEach((el) => el.classList.remove("active"));
+            div.classList.add("active");
 
-        sessionStorage.setItem('selectedVisaTitle', visa.title);
+            sessionStorage.setItem("selectedVisaTitle", visa.title);
 
-      renderGuidelines(visa.guidelines);
-    };
-    container.appendChild(div);
-    if (index === 0) renderGuidelines(visa.guidelines);
-  });
-}
+            renderGuidelines(visa.guidelines);
+          };
+          container.appendChild(div);
+          if (index === 0) renderGuidelines(visa.guidelines);
+        });
+      }
 
- 
- 
- 
- 
- 
- 
- 
-  function renderGuidelines(guidelines) {
-    const content = document.getElementById('guidelinesContent');
-    content.innerHTML = '';
-    if (!guidelines.length) {
-      content.innerHTML = '<div class="text-muted">No specific guidelines available.</div>';
-      return;
-    }
-    guidelines.forEach(g => {
-      const block = document.createElement('div');
-      block.className = 'guideline-block';
-      block.innerHTML = `<h6 class="fw-bold mb-2">${g.heading}</h6><p  style="white-space: pre-line;">${g.text}</p>`;
-      content.appendChild(block);
-    });
-  }
+      function renderGuidelines(guidelines) {
+        const content = document.getElementById("guidelinesContent");
+        content.innerHTML = "";
+        if (!guidelines.length) {
+          content.innerHTML =
+            '<div class="text-muted">No specific guidelines available.</div>';
+          return;
+        }
+        guidelines.forEach((g) => {
+          const block = document.createElement("div");
+          block.className = "guideline-block";
+          block.innerHTML = `<h6 class="fw-bold mb-2">${g.heading}</h6><p  style="white-space: pre-line;">${g.text}</p>`;
+          content.appendChild(block);
+        });
+      }
 
+      // document.addEventListener('DOMContentLoaded', () => {
+      //   const signupData = JSON.parse(localStorage.getItem('signupData'));
+      //   const visaData = JSON.parse(localStorage.getItem('visaData'));
 
+      //   if (signupData?.firstName) {
+      //     const heading = document.getElementById('reviewName');
+      //     if (heading) {
+      //       heading.textContent = `${signupData.firstName}, Know before you go!`;
+      //     }
 
+      //      const profileInitialEl = document.getElementById('profileInitial');
+      //   if (profileInitialEl) {
+      //     profileInitialEl.textContent = signupData.firstName.charAt(0).toUpperCase();
+      //   }
+      // }
 
+      //   if (visaData) {
+      //     const destination = visaData.destinationCountry || visaData.arrCountyName || 'Unknown';
+      //     const visaType = visaData.visaCategory || 'Tourism';
+      //     const fromDateStr = visaData.fromDate?.split('T')[0];
+      //     const toDateStr = visaData.toDate?.split('T')[0];
 
+      //     // Format date
+      //     const formatDate = (iso) => {
+      //       const date = new Date(iso);
+      //       const options = { year: 'numeric', month: 'short', day: 'numeric' };
+      //       return date.toLocaleDateString('en-US', options);
+      //     };
 
+      //     // Duration in days
+      //     const getDuration = (start, end) => {
+      //       const d1 = new Date(start);
+      //       const d2 = new Date(end);
+      //       const diff = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
+      //       return diff > 0 ? `${diff} days` : 'N/A';
+      //     };
 
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   const signupData = JSON.parse(localStorage.getItem('signupData'));
-  //   const visaData = JSON.parse(localStorage.getItem('visaData'));
+      //     // Fill info-bar fields
+      //     document.getElementById('infoDestination').textContent = destination;
+      //     document.getElementById('infoVisaType').textContent = visaType;
+      //     document.getElementById('infoDuration').textContent = getDuration(fromDateStr, toDateStr);
+      //     document.getElementById('infoDates').textContent = `${formatDate(fromDateStr)} – ${formatDate(toDateStr)}`;
+      //   }
 
-  //   if (signupData?.firstName) {
-  //     const heading = document.getElementById('reviewName');
-  //     if (heading) {
-  //       heading.textContent = `${signupData.firstName}, Know before you go!`;
-  //     }
-    
+      // });
 
+      // Initialize
 
+      document.addEventListener("DOMContentLoaded", () => {
+        const signupData = JSON.parse(localStorage.getItem("signupData"));
+        const visaData = JSON.parse(localStorage.getItem("visaData"));
 
-  //      const profileInitialEl = document.getElementById('profileInitial');
-  //   if (profileInitialEl) {
-  //     profileInitialEl.textContent = signupData.firstName.charAt(0).toUpperCase();
-  //   }
-  // }
-  
+        if (signupData?.firstName) {
+          const heading = document.getElementById("reviewName");
+          if (heading) {
+            heading.textContent = `${signupData.firstName}, Know before you go!`;
+          }
 
+          const profileInitialEl = document.getElementById("profileInitial");
+          if (profileInitialEl) {
+            profileInitialEl.textContent = signupData.firstName
+              .charAt(0)
+              .toUpperCase();
+          }
+        }
 
-  //   if (visaData) {
-  //     const destination = visaData.destinationCountry || visaData.arrCountyName || 'Unknown';
-  //     const visaType = visaData.visaCategory || 'Tourism';
-  //     const fromDateStr = visaData.fromDate?.split('T')[0];
-  //     const toDateStr = visaData.toDate?.split('T')[0];
+        if (visaData) {
+          const destination =
+            visaData.destinationCountry || visaData.arrCountyName || "Unknown";
+          const visaType = visaData.visaCategory || "Tourism";
+          const fromDateStr = visaData.fromDate?.split("T")[0];
+          const toDateStr = visaData.toDate?.split("T")[0];
 
-  //     // Format date
-  //     const formatDate = (iso) => {
-  //       const date = new Date(iso);
-  //       const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  //       return date.toLocaleDateString('en-US', options);
-  //     };
+          // ✅ Set current country for visa options
+          currentCountry = destination;
 
-  //     // Duration in days
-  //     const getDuration = (start, end) => {
-  //       const d1 = new Date(start);
-  //       const d2 = new Date(end);
-  //       const diff = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
-  //       return diff > 0 ? `${diff} days` : 'N/A';
-  //     };
+          // ✅ Render visa options based on destination country
+          renderVisaOptions();
 
-  //     // Fill info-bar fields
-  //     document.getElementById('infoDestination').textContent = destination;
-  //     document.getElementById('infoVisaType').textContent = visaType;
-  //     document.getElementById('infoDuration').textContent = getDuration(fromDateStr, toDateStr);
-  //     document.getElementById('infoDates').textContent = `${formatDate(fromDateStr)} – ${formatDate(toDateStr)}`;
-  //   }
+          // Format date
+          const formatDate = (iso) => {
+            const date = new Date(iso);
+            const options = { year: "numeric", month: "short", day: "numeric" };
+            return date.toLocaleDateString("en-US", options);
+          };
 
+          // Duration in days
+          const getDuration = (start, end) => {
+            const d1 = new Date(start);
+            const d2 = new Date(end);
+            const diff = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
+            return diff > 0 ? `${diff} days` : "N/A";
+          };
 
+          // Fill info-bar fields
+          document.getElementById("infoDestination").textContent = destination;
+          document.getElementById("infoVisaType").textContent = visaType;
+          document.getElementById("infoDuration").textContent = getDuration(
+            fromDateStr,
+            toDateStr
+          );
+          document.getElementById("infoDates").textContent = `${formatDate(
+            fromDateStr
+          )} – ${formatDate(toDateStr)}`;
+        } else {
+          // fallback render in case no visaData yet
+          renderVisaOptions();
+        }
+      });
 
+      renderVisaOptions();
+    </script>
 
-
-
-
-
-
-
-
-  // });
-
-
-
-
-
-
-
-
-  // Initialize
- 
- 
- 
- document.addEventListener('DOMContentLoaded', () => {
-  const signupData = JSON.parse(localStorage.getItem('signupData'));
-  const visaData = JSON.parse(localStorage.getItem('visaData'));
-
-  if (signupData?.firstName) {
-    const heading = document.getElementById('reviewName');
-    if (heading) {
-      heading.textContent = `${signupData.firstName}, Know before you go!`;
-    }
-
-    const profileInitialEl = document.getElementById('profileInitial');
-    if (profileInitialEl) {
-      profileInitialEl.textContent = signupData.firstName.charAt(0).toUpperCase();
-    }
-  }
-
-  if (visaData) {
-    const destination = visaData.destinationCountry || visaData.arrCountyName || 'Unknown';
-    const visaType = visaData.visaCategory || 'Tourism';
-    const fromDateStr = visaData.fromDate?.split('T')[0];
-    const toDateStr = visaData.toDate?.split('T')[0];
-
-    // ✅ Set current country for visa options
-    currentCountry = destination;
-
-    // ✅ Render visa options based on destination country
-    renderVisaOptions();
-
-    // Format date
-    const formatDate = (iso) => {
-      const date = new Date(iso);
-      const options = { year: 'numeric', month: 'short', day: 'numeric' };
-      return date.toLocaleDateString('en-US', options);
-    };
-
-    // Duration in days
-    const getDuration = (start, end) => {
-      const d1 = new Date(start);
-      const d2 = new Date(end);
-      const diff = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
-      return diff > 0 ? `${diff} days` : 'N/A';
-    };
-
-    // Fill info-bar fields
-    document.getElementById('infoDestination').textContent = destination;
-    document.getElementById('infoVisaType').textContent = visaType;
-    document.getElementById('infoDuration').textContent = getDuration(fromDateStr, toDateStr);
-    document.getElementById('infoDates').textContent = `${formatDate(fromDateStr)} – ${formatDate(toDateStr)}`;
-  } else {
-    // fallback render in case no visaData yet
-    renderVisaOptions();
-  }
-});
-
-
- 
- 
- 
- 
- 
- renderVisaOptions();
-
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
