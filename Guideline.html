@@ -601,646 +601,663 @@
           doc.save(`${country}_${visaType}_Requirements.pdf`);
         });
    const visaData = {
+    Netherlands :{
+  "tourism": [
+    {
+      "title": "Schengen Visa (Type C) – Tourism",
+      "duration": "90 days within 180 days",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Valid passport with at least 3 months validity beyond return date and 2 blank pages.\n\nCopies of previous Schengen visas and entry/exit stamps.\n\nPassport must not be older than 10 years."
+        },
+        {
+          "heading": "Application Form",
+          "text": "Completed and signed Schengen visa application form with a photograph attached.\n\nMust be printed with all barcode pages included."
+        },
+        {
+          "heading": "Photo",
+          "text": "Two recent passport-sized photographs (35x45mm).\n\nWhite background, 80% face coverage, neutral expression.\n\nNo glasses or headwear (except for religious reasons)."
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "Bank statements for the last 3 months showing sufficient funds (minimum €55 per day).\n\nSalary slips (last 3 months) if employed.\n\nTax returns (last 2 years) if self-employed."
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Confirmed round-trip flight reservations.\n\nHotel bookings for the entire stay in the Netherlands.\n\nTravel insurance covering at least €30,000 for medical emergencies in the Schengen area."
+        },
+        {
+          "heading": "Letter",
+          "text": "Cover letter explaining the purpose of the visit, itinerary, and financial means.\n\nIf visiting family/friends: Invitation letter from the host in the Netherlands + proof of their residence status."
+        },
+        {
+          "heading": "Other",
+          "text": "Employment proof (employer letter with leave approval).\n\nBusiness registration documents (if self-employed).\n\nFor minors: Notarized parental consent if traveling alone or with one parent.\n\nPrevious Schengen/US/UK visas (if applicable)."
+        }
+      ]
+    }
+  ],
+  "business": [
+    {
+      "title": "Schengen Visa (Type C) – Business",
+      "duration": "90 days within 180 days",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Same as Tourism Visa requirements."
+        },
+        {
+          "heading": "Application Form",
+          "text": "Same as Tourism Visa requirements."
+        },
+        {
+          "heading": "Photo",
+          "text": "Same as Tourism Visa requirements."
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "Same as Tourism Visa requirements."
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Same as Tourism Visa requirements."
+        },
+        {
+          "heading": "Business Documents",
+          "text": "Invitation letter from a Dutch company (with address, purpose, and duration of stay).\n\nEmployer letter confirming business purpose, funding, and job position.\n\nCompany registration proof (if self-employed)."
+        },
+        {
+          "heading": "Letter",
+          "text": "Cover letter detailing business purpose (meetings, conferences, training, etc.).\n\nSponsorship details (if applicable)."
+        },
+        {
+          "heading": "Other",
+          "text": "Trade licenses or tax documents (if self-employed).\n\nConference/event registration proof (if applicable).\n\nPrevious Schengen business visas (if any)."
+        }
+      ]
+    }
+  ]
+
+    },
   Australia: {
-    tourism: [
-      {
-        title: "Visitor Visa (Subclass 600) - Tourist Stream",
-        duration: "3, 6, or 12 months",
-        fee: "AUD 190",
-        time: "7-30 days",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid passport with at least 6 months validity and one blank page.",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed: Recent bank statements (last 3-6 months) and salary slips.\nFor self-employed: Business registration, tax returns, and personal/business bank statements.",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Return flight itinerary and accommodation bookings (or invitation letter if staying with family/friends).",
-          },
-          {
-            heading: "Photo",
-            text: "One passport-sized photo (45mm x 35mm) with white background.",
-          },
-          {
-            heading: "Invitation Letter",
-            text: "If visiting family/friends: Signed letter from host with their contact details, address, and proof of Australian residency status.",
-          },
-          {
-            heading: "Additional Requirements",
-            text: `Employment Verification: Letter from employer granting leave (if employed) or enrollment certificate (if student).\n\nMinors: Birth certificate and notarized parental consent letter if traveling without both parents.\n\nHealth Insurance: Recommended comprehensive travel insurance covering medical expenses.\n\nHealth Examinations: Required for stays over 3 months (depending on country of origin and health risks).\n\nCharacter Requirements: Police clearance certificate if requested.`,
-          },
-        ],
-      },
-      {
-        title: "eVisitor Visa (Subclass 651)",
-        duration: "Up to 3 months per visit",
-        fee: "Free",
-        time: "24-72 hours",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid passport from an eligible country (EU and some others) with 6 months validity.",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "Bank statements showing sufficient funds for your stay (last 3 months).",
-          },
-          {
-            heading: "Travel Itinerary",
-            text: "Details of your planned activities and accommodation in Australia.",
-          },
-          {
-            heading: "Other",
-            text: "This visa cannot be extended. Must apply online outside Australia.",
-          },
-        ],
-      },
-      {
-        title: "ETA (Subclass 601)",
-        duration: "Up to 3 months per visit",
-        fee: "AUD 20",
-        time: "Instant to 72 hours",
-        guidelines: [
-          {
-            heading: "Eligibility",
-            text: "Available to passport holders from specific countries (including USA, Canada, UK, etc.).",
-          },
-          {
-            heading: "Application",
-            text: "Must apply online or through approved travel agents/airlines.",
-          },
-          {
-            heading: "Limitations",
-            text: "Cannot work (business visitor activities permitted). Multiple entries allowed for 12 months.",
-          },
-        ],
-      },
-    ],
-    business: [
-      {
-        title: "Visitor Visa (Subclass 600) - Business Stream",
-        duration: "Up to 3 months",
-        fee: "AUD 190",
-        time: "7-30 days",
-        guidelines: [
-          {
-            heading: "Business Documents",
-            text: "Letter from employer detailing purpose of visit OR invitation from Australian company with meeting schedules/conference details.",
-          },
-          {
-            heading: "Financial Proof",
-            text: "Company bank statements and/or personal funds to cover expenses.",
-          },
-          {
-            heading: "Other Requirements",
-            text: "All standard tourist visa requirements apply (valid passport, return ticket, etc.). Business activities limited to meetings, conferences, or negotiations - no paid work permitted.",
-          },
-        ],
-      },
-    ],
-    student: [
-      {
-        title: "Student Visa (Subclass 500)",
-        duration: "Duration of course",
-        fee: "AUD 710",
-        time: "4 weeks - 3 months",
-        guidelines: [
-          {
-            heading: "Key Requirements",
-            text: "Confirmation of Enrollment (CoE) from Australian institution.\nGenuine Temporary Entrant (GTE) statement.\nOverseas Student Health Cover (OSHC).\nFinancial proof: AUD 24,505/year for living costs + tuition fees.",
-          },
-        ],
-      },
-    ],
-    workingHoliday: [
-      {
-        title: "Working Holiday Visa (Subclass 417)",
-        duration: "12 months (extendable)",
-        fee: "AUD 635",
-        time: "1-3 months",
-        guidelines: [
-          {
-            heading: "Requirements",
-            text: "Aged 18-30 (35 for some countries).\nProof of funds (AUD 5,000+).\nHealth insurance.\nNo dependent children.",
-          },
-        ],
-      },
-    ],
-  },
+  "tourism": [
+    {
+      "title": "Visitor Visa (Subclass 600) - Tourist Stream",
+      "duration": "3, 6, or 12 months",
+      "fee": "AUD 190",
+      "time": "7–30 days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Valid passport with **6+ months validity** and **1 blank page**.\n\nCopies of previous visas/entry stamps (if any)."
+        },
+        {
+          "heading": "Application Form",
+          "text": "Completed online application (ImmiAccount) with barcode.\n\nPrinted copy with signature (if requested)."
+        },
+        {
+          "heading": "Photo",
+          "text": "One recent passport-sized photo (45mm x 35mm).\n\nWhite background, neutral expression, no glasses/headwear."
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "**Bank statements (last 3–6 months)** showing **AUD 5,000+** for stay.\n\nSalary slips (if employed) or business/tax docs (if self-employed)."
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "**Return flight itinerary**.\n\n**Hotel bookings** or invitation letter from family/friends (with host’s residency proof)."
+        },
+        {
+          "heading": "Letter",
+          "text": "**Cover letter** explaining trip purpose, itinerary, and ties to home country.\n\nIf visiting family/friends: **Invitation letter** with host’s contact + address."
+        },
+        {
+          "heading": "Other",
+          "text": "**Employment proof**: Employer letter (leave approval) or enrollment certificate (students).\n\n**Minors**: Birth certificate + notarized parental consent if traveling alone.\n\n**Travel insurance** (strongly recommended).\n\n**Health exams**: Required for stays **over 3 months** (depending on country)."
+        }
+      ]
+    },
+    {
+      "title": "eVisitor Visa (Subclass 651)",
+      "duration": "Up to 3 months per visit",
+      "fee": "Free",
+      "time": "24–72 hours",
+      "guidelines": [
+        {
+          "heading": "Eligibility",
+          "text": "Only for **EU passport holders** and select countries.\n\nPassport must be valid for **6+ months**."
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "Bank statements (last 3 months) with **AUD 1,000+ per month** of stay."
+        },
+        {
+          "heading": "Travel Itinerary",
+          "text": "Brief plan of activities/accommodation in Australia."
+        },
+        {
+          "heading": "Other",
+          "text": "**Cannot be extended** or applied for from within Australia."
+        }
+      ]
+    },
+    {
+      "title": "ETA (Subclass 601)",
+      "duration": "Up to 3 months per visit",
+      "fee": "AUD 20",
+      "time": "Instant to 72 hours",
+      "guidelines": [
+        {
+          "heading": "Eligibility",
+          "text": "For **USA, Canada, UK, Japan, Singapore**, and other approved countries."
+        },
+        {
+          "heading": "Application",
+          "text": "Apply **online** or via approved airlines/travel agents."
+        },
+        {
+          "heading": "Limitations",
+          "text": "**No work permitted** (except business meetings).\n**Multiple entries** allowed for 12 months."
+        }
+      ]
+    }
+  ],
+  "business": [
+    {
+      "title": "Visitor Visa (Subclass 600) - Business Stream",
+      "duration": "Up to 3 months",
+      "fee": "AUD 190",
+      "time": "7–30 days",
+      "guidelines": [
+        {
+          "heading": "Business Documents",
+          "text": "**Invitation letter** from Australian company with:\n- Meeting/conference details\n- Host’s contact + address\n- Proof of business registration"
+        },
+        {
+          "heading": "Employer Letter",
+          "text": "From your employer confirming:\n- Purpose of visit\n- Funding (if applicable)\n- Job position + leave approval"
+        },
+        {
+          "heading": "Other",
+          "text": "**Standard tourist visa requirements apply** (passport, funds, return ticket).\n\n**No paid work** allowed (only meetings/negotiations)."
+        }
+      ]
+    }
+  ],
+  "student": [
+    {
+      "title": "Student Visa (Subclass 500)",
+      "duration": "Duration of course",
+      "fee": "AUD 710",
+      "time": "4 weeks–3 months",
+      "guidelines": [
+        {
+          "heading": "Key Requirements",
+          "text": "**Confirmation of Enrollment (CoE)** from Australian institution.\n\n**Genuine Temporary Entrant (GTE) statement** (proof of intent to return home).\n\n**Overseas Student Health Cover (OSHC)** for entire stay."
+        },
+        {
+          "heading": "Financial Proof",
+          "text": "**AUD 24,505/year** for living costs + tuition fees.\n\nBank statements/sponsor letters (if applicable)."
+        },
+        {
+          "heading": "Other",
+          "text": "English proficiency test (IELTS/TOEFL) if required.\n\nHealth exams + police clearance (if staying >6 months)."
+        }
+      ]
+    }
+  ],
+  "workingHoliday": [
+    {
+      "title": "Working Holiday Visa (Subclass 417)",
+      "duration": "12 months (extendable to 2–3 years)",
+      "fee": "AUD 635",
+      "time": "1–3 months",
+      "guidelines": [
+        {
+          "heading": "Eligibility",
+          "text": "Aged **18–30** (35 for some countries).\nPassport from **approved country** (UK, Canada, France, etc.)."
+        },
+        {
+          "heading": "Financial Proof",
+          "text": "**AUD 5,000+** in bank account.\nReturn flight ticket or proof of funds to purchase one."
+        },
+        {
+          "heading": "Other",
+          "text": "**No dependent children** allowed.\n**Health insurance** required.\nMust not have previously held this visa (unless applying for extension)."
+        }
+      ]
+    }
+  ]
+},
   Germany: {
-    tourism: [
-      {
-        title: "Schengen Visa (Type C) – Tourism",
-        duration: "180 days",
-        fee: "£90",
-        time: "Approx. 15 days",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport's identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
-          },
-          {
-            heading: "Application Form",
-            text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
-          },
-          {
-            heading: "Photo",
-            text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
-          },
-          {
-            heading: "Letter",
-            text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor's financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor's identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
-          },
-        ],
-      },
-    ],
-    business: [
-      {
-        title: "Schengen Visa (Type C) – Business",
-        duration: "180 days",
-        fee: "£90",
-        time: "Approx. 15 days",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport's identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
-          },
-          {
-            heading: "Application Form",
-            text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
-          },
-          {
-            heading: "Photo",
-            text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
-          },
-          {
-            heading: "Letter",
-            text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor's financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor's identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
-          },
-        ],
-      },
-    ],
-  },
-  Portugal: {
-    tourism: [
-      {
-        title: "Schengen Visa (Type C) – Tourism",
-        duration: "180 days",
-        fee: "£90",
-        time: "Approx. 15 days",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid passport (must be valid for at least 3 months beyond the intended departure from the Schengen area, with at least two blank pages.)\n\nCopy of passport's identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
-          },
-          {
-            heading: "Application Form",
-            text: "Completed and signed Schengen visa application form with a photograph attached.\n\n.The form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
-          },
-          {
-            heading: "Photo",
-            text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
-          },
-          {
-            heading: "Letter",
-            text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor's financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor's identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
-          },
-        ],
-      },
-    ],
-    business: [
-      {
-        title: "Schengen Visa (Type C) – Business",
-        duration: "180 days",
-        fee: "£90",
-        time: "Approx. 15 days",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport's identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
-          },
-          {
-            heading: "Application Form",
-            text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
-          },
-          {
-            heading: "Photo",
-            text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
-          },
-          {
-            heading: "Letter",
-            text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor's financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor's identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
-          },
-        ],
-      },
-    ],
-  },
+  "tourism": [
+    {
+      "title": "Schengen Visa (Type C) – Tourism",
+      "duration": "90 days within 180-day period",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Valid passport with at least 3 months validity beyond return date and 2 blank pages.\n\nCopies of all previous visas and entry/exit stamps.\n\nPassport should not be older than 10 years."
+        },
+        {
+          "heading": "Application Form",
+          "text": "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant and include all barcode pages."
+        },
+        {
+          "heading": "Photo",
+          "text": "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, neutral expression (without any sunglasses, head coverings, etc.)\n\nPhotos must be less than 6 months old"
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "For employed individuals: Bank statements for the last 6 months showing sufficient funds (minimum €45 per day).\n\nFor self-employed or business owners: Business registration certificates and personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 2 years."
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Detailed day-by-day travel itinerary covering planned dates and locations in Germany.\n\nConfirmed round-trip flight reservations.\n\nHotel bookings covering the entire stay or invitation letter from host in Germany.\n\nTravel Insurance covering at least €30,000 for medical emergencies, valid for all Schengen countries."
+        },
+        {
+          "heading": "Letter",
+          "text": "Cover Letter: A signed letter from the applicant explaining the purpose of visit, detailed itinerary, duration of stay, financial means, accommodation details, and strong ties to home country.\n\nIf visiting friends or family: Signed invitation letter (Verpflichtungserklärung) from host in Germany along with their proof of residence and passport copy."
+        },
+        {
+          "heading": "Other",
+          "text": "If sponsored: Sponsorship letter with sponsor's financial documents (last 3 months bank statements) and proof of relationship.\n\nFor minors: Birth certificate and notarized parental consent letter if traveling without both parents.\n\nProof of employment: Employer letter stating position, salary, and approved leave (if employed).\n\nFor students: Enrollment certificate and school/university approval letter.\n\nProof of civil status: Marriage certificate, birth certificates of children, property deeds (to show ties to home country).\n\nPrevious Schengen visas copies (if applicable)."
+        }
+      ]
+    }
+  ],
+  "business": [
+    {
+      "title": "Schengen Visa (Type C) – Business",
+      "duration": "90 days within 180-day period",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Application Form",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Photo",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Business Documents",
+          "text": "Original invitation letter from German company on official letterhead with:\n- Company address and registration details\n- Purpose and duration of visit\n- Names and positions of meeting participants\n- Who will cover expenses\n\nLetter from applicant's employer confirming:\n- Business purpose\n- Employment status\n- Permission for travel\n- Financial coverage (if applicable)"
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Same requirements as Tourism Visa, plus:\n\nConference registration (if attending event)\n\nTrade fair tickets (if applicable)"
+        },
+        {
+          "heading": "Other",
+          "text": "Company registration documents (if self-employed or business owner).\n\nProof of previous business dealings with German company (contracts, invoices, etc.) if applicable.\n\nAll other requirements same as Tourism Visa."
+        }
+      ]
+    }
+  ]
+},
+  Portugal:{
+  "tourism": [
+    {
+      "title": "Schengen Visa (Type C) – Tourism",
+      "duration": "90 days within 180-day period",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 working days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Valid passport with at least 3 months validity beyond intended departure from Schengen area and two blank pages.\n\nCopies of all previous visas and entry/exit stamps.\n\nPassport should not be older than 10 years."
+        },
+        {
+          "heading": "Application Form",
+          "text": "Completed and signed Portugal Schengen visa application form with a photograph attached.\n\nThe form must be printed and signed by the applicant at the appropriate places and include all barcode pages."
+        },
+        {
+          "heading": "Photo",
+          "text": "Two identical recent passport-sized color photographs (35-45mm).\n\nLight gray or white background\n\n80% face coverage, neutral expression (no smiling, sunglasses or head coverings)\n\nPhotos must be less than 6 months old"
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "For employed individuals: Original bank statements for last 3 months showing minimum €40 per day of stay.\n\nFor self-employed: Business registration, tax returns (last 2 years), and personal/business bank statements.\n\nIf sponsored: Sponsor's bank statements and notarized letter of financial responsibility."
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Detailed day-by-day itinerary of Portugal visit with dates and locations.\n\nRound-trip flight reservation (not necessarily paid ticket).\n\nConfirmed hotel bookings or invitation letter from Portuguese host with copy of their residence permit.\n\nTravel medical insurance covering minimum €30,000, valid for all Schengen countries."
+        },
+        {
+          "heading": "Letter",
+          "text": "Signed cover letter explaining purpose of visit, itinerary, accommodation details, and financial means.\n\nIf visiting friends/family: Original 'Carta de Convidado' (Portuguese invitation form) completed by host and certified at Portuguese city hall or notary."
+        },
+        {
+          "heading": "Other",
+          "text": "Employment verification: Recent payslips (last 3 months) and employer letter approving leave.\n\nFor students: Enrollment certificate and school/university approval letter.\n\nFor minors: Birth certificate and notarized parental authorization if traveling without both parents.\n\nProof of accommodation for entire stay (hotel bookings or host's housing proof).\n\nProof of civil status (marriage certificate, children's birth certificates if applicable).\n\nPrevious Schengen visas copies (if any)."
+        }
+      ]
+    }
+  ],
+  "business": [
+    {
+      "title": "Schengen Visa (Type C) – Business",
+      "duration": "90 days within 180-day period",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 working days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Application Form",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Photo",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Business Documents",
+          "text": "Original invitation letter from Portuguese company on official letterhead including:\n- Company registration details (NIF number)\n- Full address and contact information\n- Purpose and duration of visit\n- Names of meeting participants\n- Financial responsibility declaration\n\nLetter from applicant's employer confirming:\n- Business purpose of trip\n- Employment status and position\n- Financial coverage details"
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Same as Tourism Visa plus:\n\nConference/trade fair registration confirmation (if applicable)\n\nMeeting schedule with Portuguese company"
+        },
+        {
+          "heading": "Other",
+          "text": "Company registration documents (if self-employed).\n\nProof of previous business relations with Portuguese company (if applicable).\n\nAll other requirements same as Tourism Visa."
+        }
+      ]
+    }
+  ]
+},
   France: {
-    tourism: [
-      {
-        title: "Schengen Visa (Type C) – Tourism",
-        duration: "180 days",
-        fee: "£90",
-        time: "Approx. 15 days",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid passport (must be valid for at least 3 months beyond the intended departure from the Schengen area, with at least two blank pages.)\n\nCopy of passport's identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
-          },
-          {
-            heading: "Application Form",
-            text: "Completed and signed Schengen visa application form with a photograph attached.\n\n.The form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
-          },
-          {
-            heading: "Photo",
-            text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
-          },
-          {
-            heading: "Letter",
-            text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor's financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor's identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
-          },
-        ],
-      },
-    ],
-    business: [
-      {
-        title: "Schengen Visa (Type C) – Business",
-        duration: "180 days",
-        fee: "£90",
-        time: "Approx. 15 days",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport's identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
-          },
-          {
-            heading: "Application Form",
-            text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
-          },
-          {
-            heading: "Photo",
-            text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
-          },
-          {
-            heading: "Letter",
-            text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor's financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor's identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
-          },
-        ],
-      },
-    ],
-  },
-  Italy: {
-    tourism: [
-      {
-        title: "Schengen Visa (Type C) – Tourism",
-        duration: "180 days",
-        fee: "£90",
-        time: "Approx. 15 days",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid passport (must be valid for at least 3 months beyond the intended departure from the Schengen area, with at least two blank pages.)\n\nCopy of passport's identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
-          },
-          {
-            heading: "Application Form",
-            text: "Completed and signed Schengen visa application form with a photograph attached.\n\n.The form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
-          },
-          {
-            heading: "Photo",
-            text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
-          },
-          {
-            heading: "Letter",
-            text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor's financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor's identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
-          },
-        ],
-      },
-    ],
-    business: [
-      {
-        title: "Schengen Visa (Type C) – Business",
-        duration: "180 days",
-        fee: "£90",
-        time: "Approx. 15 days",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.\n\nCopy of passport's identity page and any previous visas with entry/exit stamps.\n\nPassport should not be older than 10 years.",
-          },
-          {
-            heading: "Application Form",
-            text: "Completed and signed Schengen visa application form with a photograph attached.\n\nThe form needs to be printed and signed by the applicant at the appropriate places and include all barcode pages.",
-          },
-          {
-            heading: "Photo",
-            text: "Two recent passport-sized color photographs (35-45mm).\n\nWhite background\n\n80% face coverage, non-smiling (without any sunglasses, head coverings, etc.)\n\nNot previously used in any visa",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates and/or personal bank statements for the last 3 months.\n\nPersonal Income Tax returns for the last 3 years",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Detailed travel itinerary covering planned dates and locations.\n\nConfirmed flight ticket reservation showing entry and exit from the Schengen area.\n\nConfirmed hotel reservations covering the entire stay in all Schengen countries.\n\nTravel Insurance Documentation: Policy covering at least €30,000 for medical emergencies, valid for the entire Schengen area.",
-          },
-          {
-            heading: "Letter",
-            text: "Cover Letter: A signed letter from the applicant explaining the purpose of the trip, travel itinerary, duration of stay, financial means, accommodation details, and ties to the home country, along with any other relevant information to support the visa application.\n\nIf visiting friends or family, a signed invitation letter from the host in the Schengen area along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `If a sponsor is covering your expenses, you must provide a sponsorship letter, proof of the sponsor's financial means (such as recent bank statements, salary slips, or tax returns), proof of accommodation, the sponsor's identity proof (passport copy and residence permit, if applicable), and proof of relationship between you and the sponsor (if applicable).\n\nIf the applicant is a minor (under 18 years old), additional documents are required, including a birth certificate showing both parents' names, a notarized affidavit of consent from both parents or legal guardians if the minor is traveling alone or with one parent, and a copy of the parents' passports or identity documents.\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nReceipt of the visa application (A document with a barcode to be printed and given along with the visa application form).\n\nPhotocopy of valid USA,UK and any other previous Schengen visa.\n\nProof of Employment: Employees must provide a letter from their employer stating their position, salary slips of most recent 3 months, approved leave, and any other relevant details.\n\nProof of Employment: Self-employed applicants need to submit a business registration certificate, tax documents (most recent 3 years), financial statements (most recent 3 months with bank seal and signature), company memo, partnership deed etc. or any other proof of business activity.\n\nProof of Study: Students must provide an enrollment certificate from their educational institution confirming approved leave, along with any other necessary documentation.`,
-          },
-        ],
-      },
-    ],
-  },
+  "tourism": [
+    {
+      "title": "Schengen Visa (Type C) – Tourism",
+      "duration": "90 days within 180-day period",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 working days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Valid passport with at least 3 months validity beyond intended departure from Schengen area and two blank pages.\n\nCopies of all previous visas and entry/exit stamps.\n\nPassport should not be older than 10 years."
+        },
+        {
+          "heading": "Application Form",
+          "text": "Completed and signed France Schengen visa application form with a photograph attached.\n\nThe form must be printed and signed by the applicant at the appropriate places and include all barcode pages from France-Visas portal."
+        },
+        {
+          "heading": "Photo",
+          "text": "Two identical recent passport-sized color photographs (35-45mm).\n\nPlain white background\n\n80% face coverage, neutral expression (no smiling, sunglasses or head coverings)\n\nPhotos must be less than 6 months old"
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "For employed individuals: Original bank statements for last 3 months showing minimum €65 per day of stay.\n\nFor self-employed: Business registration, tax returns (last 2 years), and personal/business bank statements.\n\nIf sponsored: Sponsor's bank statements and 'Attestation d'Accueil' (official French hosting certificate)."
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Detailed day-by-day itinerary of France visit with dates and locations.\n\nRound-trip flight reservation (not necessarily paid ticket).\n\nConfirmed hotel bookings or 'Attestation d'Accueil' from French host.\n\nTravel medical insurance covering minimum €30,000, valid for all Schengen countries."
+        },
+        {
+          "heading": "Letter",
+          "text": "Signed cover letter explaining purpose of visit, itinerary, accommodation details, and financial means in French or English.\n\nIf visiting friends/family: Original 'Attestation d'Accueil' obtained by host from their local French town hall."
+        },
+        {
+          "heading": "Other",
+          "text": "Employment verification: Recent payslips (last 3 months) and employer letter approving leave in French/English.\n\nFor students: Enrollment certificate and school/university approval letter.\n\nFor minors: Birth certificate and notarized 'Autorisation de Sortie du Territoire' if traveling without both parents.\n\nProof of accommodation for entire stay (hotel bookings or 'Attestation d'Accueil').\n\nProof of civil status (marriage certificate, children's birth certificates if applicable).\n\nPrevious Schengen visas copies (if any)."
+        }
+      ]
+    }
+  ],
+  "business": [
+    {
+      "title": "Schengen Visa (Type C) – Business",
+      "duration": "90 days within 180-day period",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 working days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Application Form",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Photo",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Business Documents",
+          "text": "Original invitation letter from French company on official letterhead including:\n- Company SIRET number\n- Full address and contact information\n- Purpose and duration of visit\n- Names of meeting participants\n- Financial responsibility declaration\n\nLetter from applicant's employer confirming:\n- Business purpose of trip\n- Employment status and position\n- Financial coverage details"
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Same as Tourism Visa plus:\n\nConference/trade fair registration confirmation (if applicable)\n\nMeeting schedule with French company"
+        },
+        {
+          "heading": "Other",
+          "text": "Company registration documents (if self-employed).\n\nProof of previous business relations with French company (if applicable).\n\nAll other requirements same as Tourism Visa."
+        }
+      ]
+    }
+  ]
+},
+  Italy:{
+  "tourism": [
+    {
+      "title": "Schengen Visa (Type C) – Tourism",
+      "duration": "90 days within 180-day period",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 calendar days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Valid passport with at least 3 months validity beyond intended departure from Schengen area and two blank visa pages.\n\nPhotocopies of all previous Schengen visas and entry/exit stamps.\n\nPassport must have been issued within the last 10 years."
+        },
+        {
+          "heading": "Application Form",
+          "text": "Completed and signed Italian Schengen visa application form (available in Italian/English).\n\nForm must be printed single-sided, signed at points marked with 'X', and include all barcode pages from the online application."
+        },
+        {
+          "heading": "Photo",
+          "text": "Two identical recent passport photos (35x45mm).\n\nLight gray or white background (no patterns)\n\nFace must cover 70-80% of photo (32-36mm from chin to crown)\n\nStrict no-smiling policy with neutral expression\n\nPhotos must be less than 3 months old"
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "Original bank statements showing transactions for last 3 months with minimum balance of €50 per day of stay.\n\nFor employees: Last 3 payslips and employment contract copy.\n\nFor self-employed: Chamber of Commerce registration and last 2 years' tax returns.\n\nIf sponsored: Sponsor's bank statements and notarized 'Dichiarazione di Ospitalità'."
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Detailed day-by-day itinerary of Italian visit with confirmed hotel bookings.\n\nRound-trip flight reservation (actual ticket not required).\n\nFor road trips: driver's license, car registration and planned route.\n\nTravel insurance covering minimum €30,000, valid in all Schengen states."
+        },
+        {
+          "heading": "Letter",
+          "text": "Signed cover letter in Italian or English explaining:\n- Purpose of visit\n- Detailed itinerary\n- Accommodation arrangements\n- Financial means\n- Strong ties to home country\n\nIf visiting friends/relatives: Original 'Dichiarazione di Ospitalità' from host's local Italian police station."
+        },
+        {
+          "heading": "Other",
+          "text": "Employment verification: Original company letter on letterhead with:\n- Position and salary\n- Approved leave dates\n- Company contact details\n\nFor students: School/university enrollment certificate and no-objection letter.\n\nFor minors: Birth certificate and notarized parental travel consent form.\n\nProof of civil status (marriage/birth certificates if applicable).\n\nPrevious Schengen visas copies (if any).\n\nFor retirees: Pension statements and proof of retirement."
+        }
+      ]
+    }
+  ],
+  "business": [
+    {
+      "title": "Schengen Visa (Type C) – Business",
+      "duration": "90 days within 180-day period",
+      "fee": "€80 (approx. £70)",
+      "time": "Approx. 15 calendar days",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Application Form",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Photo",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "Same requirements as Tourism Visa"
+        },
+        {
+          "heading": "Business Documents",
+          "text": "Original invitation letter from Italian company on official letterhead including:\n- Italian company's Partita IVA (VAT number)\n- Complete company address and contacts\n- Names and positions of meeting participants\n- Detailed meeting schedule\n- Financial responsibility statement\n\nLetter from applicant's employer confirming:\n- Business purpose\n- Employment verification\n- Financial coverage details"
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Same as Tourism Visa plus:\n\nConference registration (if applicable)\n\nTrade fair participation documents\n\nMeeting confirmation emails"
+        },
+        {
+          "heading": "Other",
+          "text": "Company registration documents (if self-employed).\n\nProof of previous business with Italian company (contracts/invoices).\n\nAll other requirements same as Tourism Visa."
+        }
+      ]
+    }
+  ]
+},
   "United Kingdom": {
-    tourism: [
-      {
-        title: "Standard Visitor Visa (Tourism)",
-        duration: "6 months",
-        fee: "£115",
-        time: "Approx. 3 weeks",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\nFor self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Details of flight bookings and/or accommodation arrangements.",
-          },
-          {
-            heading: "Photo",
-            text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
-          },
-          {
-            heading: "Letter",
-            text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
-          },
-        ],
-      },
-      {
-        title: "2-Year Long-term Standard Visitor Visa",
-        duration: "2 years",
-        fee: "£432",
-        time: "Approx. 3 weeks",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Details of flight bookings and/or accommodation arrangements.",
-          },
-          {
-            heading: "Photo",
-            text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
-          },
-          {
-            heading: "Letter",
-            text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
-          },
-        ],
-      },
-      {
-        title: "5-Year Long-term Standard Visitor Visa",
-        duration: "5 years",
-        fee: "£771",
-        time: "Approx. 3 weeks",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Details of flight bookings and/or accommodation arrangements.",
-          },
-          {
-            heading: "Photo",
-            text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
-          },
-          {
-            heading: "Letter",
-            text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
-          },
-        ],
-      },
-      {
-        title: "10-Year Long-term Standard Visitor Visa",
-        duration: "10 years",
-        fee: "£963",
-        time: "Approx. 3 weeks",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Details of flight bookings and/or accommodation arrangements.",
-          },
-          {
-            heading: "Photo",
-            text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
-          },
-          {
-            heading: "Letter",
-            text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
-          },
-        ],
-      },
-      {
-        title: "standars Visitor Visa(study)",
-        duration: "6 months",
-        fee: "£115",
-        time: "Approx. 3 weeks",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "Bank statements or financial documents showing sufficient funds to cover tuition fees and living costs.\n\nIf using a bank loan, submit the loan approval letter along with other financial documents.",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Details of flight bookings and/or accommodation arrangements.",
-          },
-          {
-            heading: "Photo",
-            text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
-          },
-          {
-            heading: "Letter",
-            text: "Proof of Enrollment: A letter from the educational institution confirming the enrollment in the course.",
-          },
-          {
-            heading: "Other",
-            text: `Applicants Sponsored by Someone: If you are being sponsored, provide a sponsorship letter confirming the details of your sponsorship, the purpose of your visit, and the sponsor's financial commitment. This should be supported by financial documents like bank statements or proof of income. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK\n\nProof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
-          },
-        ],
-      },
-    ],
-    business: [
-      {
-        title: "Standard Business Visa",
-        duration: "6 months",
-        fee: "£115",
-        time: "Approx. 3 weeks",
-        guidelines: [
-          {
-            heading: "Passport",
-            text: "Valid Passport for the entire duration of the stay and have at least one blank page.",
-          },
-          {
-            heading: "Proof of Funds",
-            text: "For employed individuals: Bank statements and/or salary slips for the last 6 months showing sufficient funds to cover all expenses.\n\ncertificates For self-employed or business owners: Business registration certificates, tax returns, and/or personal bank statements for the last 6 months.",
-          },
-          {
-            heading: "Proof of Travel",
-            text: "Details of flight bookings and/or accommodation arrangements.",
-          },
-          {
-            heading: "Photo",
-            text: "Recent Passport-Sized Photographs: As per UK Visas and Immigration (UKVI) specifications (usually required for biometric purposes).",
-          },
-          {
-            heading: "Letter",
-            text: "If visiting friends or family, a signed invitation letter from the host in the UK along with their proof of address and immigration status.",
-          },
-          {
-            heading: "Other",
-            text: `Applicants Sponsored by Someone: If a sponsor is funding the trip, provide a letter from the sponsor explaining the purpose of the visit, their relationship to you, and their financial commitment to cover your expenses. Include their financial evidence (e.g., bank statements or proof of income) and their contact information. \n\nAdditional Requirement for Applicants Under 18: Must provide a signed letter of consent from a parent or legal guardian. If traveling alone or with someone other than a parent, additional documents may be required, such as proof of the relationship and details of care arrangements in the UK.\n\nProof of Employment or Study (if applicable): A letter from your employer or educational institution confirming your employment or enrollment status.\n\n Proof of Ties to Home Country: Documents demonstrating strong ties to home country, such as property deeds, family commitments (e.g., birth certificates of children, if applicable), or employment contracts.\n\nTB Test Documentation: Required if staying for 6 months or more and from specific countries.\n\nTravel Insurance Documentation: If purchased, provide proof of travel coverage.`,
-          },
-        ],
-      },
-    ],
-  }
+  "tourism": [
+    {
+      "title": "Standard Visitor Visa (Tourism)",
+      "duration": "Up to 6 months",
+      "fee": "£115",
+      "time": "Approx. 3 weeks",
+      "guidelines": [
+        {
+          "heading": "Passport",
+          "text": "Valid passport with at least one blank page and valid for entire stay.\n\nPrevious travel history (copies of previous visas and stamps).\n\nPassport must not be damaged or have unauthorised alterations."
+        },
+        {
+          "heading": "Application Form",
+          "text": "Completed online application form on UK Visas and Immigration website.\n\nPrinted application form with barcode and applicant's signature.\n\nAppointment confirmation from Visa Application Centre."
+        },
+        {
+          "heading": "Proof of Funds",
+          "text": "Personal bank statements showing transactions for last 6 months (minimum balance of £1,000+ recommended).\n\nPayslips from last 6 months if employed.\n\nBusiness financial documents if self-employed (last 2 years' accounts).\n\nSponsor's financial documents if applicable."
+        },
+        {
+          "heading": "Proof of Travel",
+          "text": "Flight reservation (not necessarily paid ticket).\n\nDetailed travel itinerary with dates and locations.\n\nHotel bookings or invitation letter from UK host with their accommodation details."
+        },
+        {
+          "heading": "Photo",
+          "text": "One passport-sized photo (45mm x 35mm) for biometric purposes.\n\nPlain light-colored background\n\nNeutral expression with mouth closed\n\nNo headwear (except for religious purposes)"
+        },
+        {
+          "heading": "Letter",
+          "text": "Cover letter explaining purpose of visit, itinerary and return plans.\n\nIf visiting friends/family: Invitation letter with host's passport copy and proof of UK immigration status.\n\nFor business visits: Letter from UK company detailing purpose of visit."
+        },
+        {
+          "heading": "Other",
+          "text": "Employment verification: Employer letter confirming position, salary and approved leave.\n\nFor students: Enrollment letter from school/university.\n\nFor minors: Birth certificate and notarized parental consent letter.\n\nTB test results if applying from listed countries.\n\nProof of UK accommodation for entire stay.\n\nEvidence of strong ties to home country (property deeds, family commitments etc.)"
+        }
+      ]
+    },
+    {
+      "title": "2-Year Long-term Visitor Visa",
+      "duration": "2 years (max 6 months per visit)",
+      "fee": "£432",
+      "time": "Approx. 3 weeks",
+      "guidelines": [
+        {
+          "heading": "Requirements",
+          "text": "Same as Standard Visitor Visa but must demonstrate:\n\nNeed for frequent visits to UK\nStronger financial evidence\nExcellent travel compliance history"
+        }
+      ]
+    },
+    {
+      "title": "5-Year Long-term Visitor Visa",
+      "duration": "5 years (max 6 months per visit)",
+      "fee": "£771",
+      "time": "Approx. 3 weeks",
+      "guidelines": [
+        {
+          "heading": "Requirements",
+          "text": "Same as 2-Year Visa but with:\n\nProven history of UK visits\nExceptional financial standing\nImpeccable immigration record"
+        }
+      ]
+    },
+    {
+      "title": "10-Year Long-term Visitor Visa",
+      "duration": "10 years (max 6 months per visit)",
+      "fee": "£963",
+      "time": "Approx. 3 weeks",
+      "guidelines": [
+        {
+          "heading": "Requirements",
+          "text": "Same as 5-Year Visa but applicant must:\n\nShow compelling reasons for decade-long visa\nDemonstrate substantial financial means\nHave perfect compliance with all immigration rules"
+        }
+      ]
+    }
+  ],
+  "business": [
+    {
+      "title": "Standard Visitor Visa (Business)",
+      "duration": "Up to 6 months",
+      "fee": "£115",
+      "time": "Approx. 3 weeks",
+      "guidelines": [
+        {
+          "heading": "Business Documents",
+          "text": "Letter from UK host company detailing:\n- Nature of business\n- Meetings schedule\n- Names of contacts\n- Financial arrangements\n\nLetter from employer confirming:\n- Position and salary\n- Purpose of UK visit\n- Duration of approved leave"
+        },
+        {
+          "heading": "Additional Requirements",
+          "text": "Conference/trade fair registration if applicable\n\nEvidence of business dealings with UK companies\n\nProfessional qualifications if relevant to visit\n\nAll other standard visitor visa requirements apply"
+        }
+      ]
+    }
+  ],
+  "study": [
+    {
+      "title": "Short-term Study Visa",
+      "duration": "6 months (11 months for English courses)",
+      "fee": "£200",
+      "time": "Approx. 3 weeks",
+      "guidelines": [
+        {
+          "heading": "Study Documents",
+          "text": "Unconditional offer letter from accredited UK institution\n\nProof of course fees payment or scholarship\n\nEvidence of English language proficiency if required\n\nAcademic qualifications used to obtain offer"
+        },
+        {
+          "heading": "Additional Requirements",
+          "text": "Detailed study plan\n\nAccommodation arrangements in UK\n\nProof of sufficient maintenance funds\n\nAll other standard documentation requirements"
+        }
+      ]
+    }
+  ]
+}
 };
 
       // let currentTab = 'tourism';
